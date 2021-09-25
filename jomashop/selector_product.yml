@@ -1,0 +1,19 @@
+name:
+  css: "span.product-name"
+  type: Text
+price:
+  css: "div.now-price > span:nth-of-type(1)"
+  type: Text
+short_description:
+  css: "span.product-info-stock-sku"
+  type: Text
+number_of_reviews:
+  css: "span.reviews-qa-label"
+  type: Text
+product_description:
+  css: "div.info-accordion-element > div:nth-of-type(1)"
+  type: Text
+image:
+  css: "div.swiper-slide.swiper-slide-active img.slide-item-main-image"
+  type: Attribute
+  attribute: src

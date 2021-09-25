@@ -1,0 +1,29 @@
+name:
+  css: span.css-1pgnl76
+  xpath: null
+  type: Text
+price:
+  css: span.css-1oz9qb
+  xpath: null
+  type: Text
+number_of_reviews:
+  css: span.css-nv7myq
+  xpath: null
+  type: Text
+rating:
+  css: span.css-1ac1x0l
+  xpath: null
+  type: Text
+short_description:
+  css: span.css-15ro776
+  xpath: null
+  type: Text
+product_description:
+  css: "div.css-u2scbn div"
+  xpath: null
+  type: Text
+image:
+  css: "button.css-lr31dm img.css-1rovmyu"
+  xpath: null
+  type: Attribute
+  attribute: src

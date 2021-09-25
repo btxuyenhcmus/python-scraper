@@ -1,0 +1,29 @@
+name:
+  css: "div.prl0-sm h1.headline-2"
+  xpath: null
+  type: Text
+price:
+  css: "div.prl0-sm div.product-price__wrapper"
+  xpath: null
+  type: Text
+short_description:
+  css: "div.prl0-sm div.text-color-accent"
+  xpath: null
+  type: Text
+product_description:
+  css: "div.description-preview p"
+  xpath: null
+  type: Text
+number_of_reviews:
+  css: "h3.css-xd87ek span"
+  xpath: null
+  type: Text
+rating:
+  css: "div.product-review p.d-sm-ib"
+  xpath: null
+  type: Text
+image:
+  css: img.css-viwop1.css-m5dkrx
+  xpath: null
+  type: Attribute
+  attribute: src
