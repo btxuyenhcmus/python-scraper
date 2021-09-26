@@ -1,11 +1,10 @@
-from walmart import Walmart
 import asyncio
+from colehaan.colehaan import Colehaan
 import json
 
 
-webWalmart = Walmart.getInstance()
-
+web = Colehaan.getInstance()
 
 if __name__ == '__main__':
-    print(json.dumps(webWalmart.product(
-        "https://www.walmart.com/ip/Athletic-Works-Women-s-Core-Active-Dri-Works-Skort/56248798?athbdg=L1600"), indent=4, sort_keys=True))
+    print(json.dumps(web.product(
+        "https://www.colehaan.com/grand-ambition-postman-oxford-british-tan/C34110.html?cta=cityguidepek"), indent=4, sort_keys=True))

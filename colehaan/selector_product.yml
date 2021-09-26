@@ -1,0 +1,21 @@
+name:
+  css: "div.buy-stack h1.product-name"
+  xpath: null
+  type: Text
+price:
+  css: "div.prices span.value"
+  xpath: null
+  type: Text
+image:
+  css: "div.carousel-cell.is-selected img.zoomImg:nth-of-type(3)"
+  xpath: null
+  type: Attribute
+  attribute: src
+short_description:
+  css: div.col-12.details
+  xpath: null
+  type: Text
+rating:
+  css: "div.turn-to-container span.avgRating"
+  xpath: null
+  type: Text
