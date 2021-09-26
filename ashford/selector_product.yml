@@ -1,0 +1,21 @@
+name:
+  css: h1.mb-2
+  xpath: null
+  type: Text
+price:
+  css: "div.d-flex span.price"
+  xpath: null
+  type: Text
+short_description:
+  css: h5.mt-0
+  xpath: null
+  type: Text
+product_description:
+  css: ul.product-description
+  xpath: null
+  type: Text
+image:
+  css: img.zoomImg
+  xpath: null
+  type: Attribute
+  attribute: src
