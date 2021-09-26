@@ -1,0 +1,21 @@
+name:
+  css: "h1.product-name span.wag-text-black"
+  xpath: null
+  type: Text
+image:
+  css: "a#imgThumbNail1.pull-left img"
+  xpath: null
+  type: Attribute
+  attribute: src
+price:
+  css: "span.price__contain span.product__price"
+  xpath: null
+  type: Text
+number_of_reviews:
+  css: "span.bv-rating-ratio-count span span"
+  xpath: null
+  type: Text
+rating:
+  css: "a.bv-rating span"
+  xpath: null
+  type: Text
