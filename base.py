@@ -1,6 +1,17 @@
 import requests
 
 
+RESP_DEFAULT = {
+    'name': None,
+    'price': '',
+    'short_description': None,
+    'number_of_reviews': None,
+    'rating': None,
+    'product_description': None,
+    'image': None
+}
+
+
 class Base():
     @property
     def headers(self) -> dict:
@@ -19,7 +30,7 @@ class Base():
 
     def product(self, url) -> dict:
         print("Downloading {}".format(url))
-        r = requests.get(url, headers=self.headers)
+        r = requests.get(url, headers=self.headers, timeout=10)
         if r.status_code > 500:
             if "To discuss automated access to Website data please contact" in r.text:
                 print(

@@ -1,5 +1,5 @@
 from selectorlib import Extractor
-from base import Base
+from base import Base, RESP_DEFAULT
 import os
 
 pathfile = os.path.dirname(os.path.realpath(__file__))
@@ -24,7 +24,10 @@ class Ashford(Base):
         return Ashford.__instance
 
     def product(self, url) -> dict:
-        return Ashford.eP.extract(super().product(url))
+        try:
+            return Ashford.eP.extract(super().product(url))
+        except Exception as e:
+            return RESP_DEFAULT
 
     def __str__(self) -> str:
         return "Ashford Model"

@@ -1,5 +1,5 @@
 from selectorlib import Extractor
-from base import Base
+from base import Base, RESP_DEFAULT
 import requests
 import os
 
@@ -26,7 +26,10 @@ class Amazon(Base):
         return Amazon.__instance
 
     def product(self, url) -> dict:
-        return Amazon.eP.extract(super().product(url))
+        try:
+            return Amazon.eP.extract(super().product(url))
+        except Exception as e:
+            return RESP_DEFAULT
 
     def search(self, keyword):
         print("Downloading {}".format(self.dns + "/s?k={}".format(keyword)))
