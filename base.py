@@ -26,6 +26,7 @@ class Base():
             'sec-fetch-dest': 'document',
             'referer': self.dns,
             'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
+            'Cookie': 'dwac_a7c84d4f15b4d916c6e435eec4=B07UHxU1UpuFCuKxpuVKNQ4cZTErb2tkJZg%3D|dw-only|||USD|false|US%2FEastern|true; cqcid=bcw7fKOtc7VMzRXsNNDgJNNuda; cquid=||; returningCustomer=true; sid=B07UHxU1UpuFCuKxpuVKNQ4cZTErb2tkJZg; dwanonymous_ad738289b685e74f02aa9af5870b8177=bcw7fKOtc7VMzRXsNNDgJNNuda; _pxhd=lvO2xyxmDgcCg6cEoYSoWs7RKnRyR/RzUNOD7BLXA0nVf6D7vQrWwkQ9lhjsX6Kjng8mNU/zZkCldZvibI6c5A==:L2782goopdmgJYClzawO7/FmdaXjCTVgxQ-T4Q30c0F6-HLBF/Y6H/oAj8viEcid3xp0eNVJhDAkOGyHOYy15EMQGKRsKnJlYPswxHX9iKk=; __cq_dnt=0; dw_dnt=0; dwsid=VKjFgF70sJH73t-aWN_sfF36dK5groluW0yeGuBxAkY2ls1HqA8oZmBjeg9M6ub5ST5g6IfY3DuArbeTPKjt-Q=='
         }
 
     def product(self, url) -> dict:

@@ -3,7 +3,6 @@ from flask import request, jsonify
 from urllib.parse import urlparse
 from base import Base
 from walmart import Walmart
-from walgreens import Walgreens
 from adidas import Adidas
 from amazon import Amazon
 from ashford import Ashford

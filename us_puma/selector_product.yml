@@ -1,0 +1,25 @@
+name:
+  css: h1.product-name
+  xpath: null
+  type: Text
+price:
+  css: span.value
+  xpath: null
+  type: Text
+product_description:
+  css: "div.product-accordion-content.show div.product-accordion-content-inner"
+  xpath: null
+  type: Text
+short_description:
+  css: "div.in-stock span"
+  xpath: null
+  type: Text
+number_of_reviews:
+  css: "div#product-section-reviews.product-accordion-header span.product-accordion-item-label"
+  xpath: null
+  type: Text
+image:
+  css: "div.glide-slide.glide__slide--active img.glide-slide-image"
+  xpath: null
+  type: Attribute
+  attribute: src
