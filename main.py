@@ -43,7 +43,10 @@ def get():
     parse_obj = urlparse(url)
     web = CRAWLER.get(parse_obj.netloc, Base)
     response = web.product(url)
-    response.update({
-        'price': float(re.sub('[^.0-9]', '', response["price"]))
-    })
+    try:
+        response.update({
+            'price': float(re.sub('[^.0-9]', '', response["price"]))
+        })
+    except Exception:
+        pass
     return jsonify(response)

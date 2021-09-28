@@ -7,10 +7,10 @@ price:
   xpath: null
   type: Text
 image:
-  css: "div.carousel-cell.is-selected img.zoomImg:nth-of-type(3)"
+  css: "div.carousel-cell.zoom.is-selected img:nth-of-type(1)"
   xpath: null
   type: Attribute
-  attribute: src
+  attribute: data-zoom-url
 short_description:
   css: div.col-12.details
   xpath: null

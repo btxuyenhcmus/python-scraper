@@ -3,7 +3,7 @@ name:
   xpath: null
   type: Text
 price:
-  css: span.css-1oz9qb
+  css: span.css-1oz9qb b:nth-of-type(1)
   xpath: null
   type: Text
 number_of_reviews:
@@ -23,7 +23,7 @@ product_description:
   xpath: null
   type: Text
 image:
-  css: "button.css-lr31dm img.css-1rovmyu"
+  css: "img.css-1rovmyu.e65zztl0"
   xpath: null
   type: Attribute
   attribute: src
