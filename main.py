@@ -1,15 +1,31 @@
 from flask import Blueprint, json
 from flask import request, jsonify
+from urllib.parse import urlparse
+from base import Base
 from walmart import Walmart
 from walgreens import Walgreens
+from adidas import Adidas
+from amazon import Amazon
+from ashford import Ashford
+from colehaan import Colehaan
+from sephora import Sephora
 
 
 scraper = Blueprint('scraper', __name__)
-web = Walmart.getInstance()
+CRAWLER = {
+    'www.walmart.com': Walmart.getInstance(),
+    'www.adidas.com': Adidas.getInstance(),
+    'www.amazon.com': Amazon.getInstance(),
+    'www.ashford.com': Ashford.getInstance(),
+    'www.colehaan.com': Colehaan.getInstance(),
+    'www.sephora.com': Sephora.getInstance()
+}
 
 
 @scraper.route('/', methods=['POST'])
 def get():
     url = json.loads(request.data)["link"]
+    parse_obj = urlparse(url)
+    web = CRAWLER.get(parse_obj.netloc, Base)
     response = web.product(url)
     return jsonify(response)

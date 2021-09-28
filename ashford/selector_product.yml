@@ -15,7 +15,7 @@ product_description:
   xpath: null
   type: Text
 image:
-  css: img.zoomImg
+  css: img.gallery-placeholder__image
   xpath: null
   type: Attribute
   attribute: src
