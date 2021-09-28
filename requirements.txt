@@ -2,3 +2,4 @@ selectorlib
 requests
 pyppeteer
 flask
+bs4
