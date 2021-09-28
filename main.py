@@ -14,6 +14,7 @@ from goat import Goat
 from maccosmetics import Maccosmetics
 from lacoste import Lacoste
 from tommy import Tommy
+from colourpop import Colourpop
 import re
 
 
@@ -30,7 +31,9 @@ CRAWLER = {
     'www.goat.com': Goat.getInstance(),
     'www.maccosmetics.com': Maccosmetics.getInstance(),
     'www.lacoste.com': Lacoste.getInstance(),
-    'usa.tommy.com': Tommy.getInstance()
+    'usa.tommy.com': Tommy.getInstance(),
+    'colourpop.com': Colourpop.getInstance()
+
 }
 
 

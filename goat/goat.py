@@ -1,5 +1,4 @@
 from flask import json
-from selectorlib import Extractor
 from base import Base, RESP_DEFAULT
 from bs4 import BeautifulSoup
 
