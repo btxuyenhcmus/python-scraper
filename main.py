@@ -11,6 +11,8 @@ from sephora import Sephora
 from coachoutlet import Coachoutlet
 from ebay import Ebay
 from goat import Goat
+from maccosmetics import Maccosmetics
+import re
 
 
 scraper = Blueprint('scraper', __name__)
@@ -24,6 +26,7 @@ CRAWLER = {
     'www.coachoutlet.com': Coachoutlet.getInstance(),
     'www.ebay.com': Ebay.getInstance(),
     'www.goat.com': Goat.getInstance(),
+    'www.maccosmetics.com': Maccosmetics.getInstance()
 }
 
 
@@ -33,4 +36,7 @@ def get():
     parse_obj = urlparse(url)
     web = CRAWLER.get(parse_obj.netloc, Base)
     response = web.product(url)
+    response.update({
+        'price': float(re.sub('[^.0-9]', '', response["price"]))
+    })
     return jsonify(response)

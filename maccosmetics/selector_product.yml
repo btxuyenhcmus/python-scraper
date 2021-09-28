@@ -1,0 +1,16 @@
+name:
+  css: "div.product-full__overview h1.product-full__name"
+  xpath: null
+  type: Text
+price:
+  css: "div.product-full__price div.product-price-v1"
+  xpath: null
+  type: Text
+short_description:
+  css: "div.product-full__overview h2.product-full__short-desc"
+  xpath: null
+  type: Text
+product_description:
+  css: "article.accordion-item.accordion-active p"
+  xpath: null
+  type: Text
