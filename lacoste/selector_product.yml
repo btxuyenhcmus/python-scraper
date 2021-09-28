@@ -1,0 +1,12 @@
+name:
+  css: h1.title--medium
+  xpath: null
+  type: Text
+price:
+  css: p.nowrap
+  xpath: null
+  type: Text
+product_description:
+  css: "div.js-care-section div.js-accordion-child"
+  xpath: null
+  type: Text

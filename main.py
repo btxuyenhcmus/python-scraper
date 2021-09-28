@@ -12,6 +12,7 @@ from coachoutlet import Coachoutlet
 from ebay import Ebay
 from goat import Goat
 from maccosmetics import Maccosmetics
+from lacoste import Lacoste
 import re
 
 
@@ -26,7 +27,8 @@ CRAWLER = {
     'www.coachoutlet.com': Coachoutlet.getInstance(),
     'www.ebay.com': Ebay.getInstance(),
     'www.goat.com': Goat.getInstance(),
-    'www.maccosmetics.com': Maccosmetics.getInstance()
+    'www.maccosmetics.com': Maccosmetics.getInstance(),
+    'www.lacoste.com': Lacoste.getInstance()
 }
 
 
