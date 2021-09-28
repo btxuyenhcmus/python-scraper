@@ -1,0 +1,25 @@
+name:
+  css: h1.it-ttl
+  xpath: null
+  type: Text
+price:
+  css: "div.mainPrice span.notranslate"
+  xpath: null
+  type: Text
+image:
+  css: "img#icImg.img"
+  xpath: null
+  type: Attribute
+  attribute: src
+short_description:
+  css: "div.vi-notify-new-bg-dBtm span"
+  xpath: null
+  type: Text
+number_of_reviews:
+  css: span.prodreview
+  xpath: null
+  type: Text
+product_description:
+  css: div.prodDetailSec
+  xpath: null
+  type: Text
