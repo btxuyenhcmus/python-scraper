@@ -1,0 +1,21 @@
+name:
+  css: span.productNameInner
+  xpath: null
+  type: Text
+price:
+  css: span.price
+  xpath: null
+  type: Text
+short_description:
+  css: "div.promoTagline div"
+  xpath: null
+  type: Text
+product_description:
+  css: div.itemDescription
+  xpath: null
+  type: Text
+image:
+  css: "div.product_main_image img"
+  xpath: null
+  type: Attribute
+  attribute: data-src
