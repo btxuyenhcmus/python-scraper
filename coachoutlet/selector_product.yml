@@ -1,0 +1,25 @@
+name:
+  css: p.head-content__heading
+  xpath: null
+  type: Text
+price:
+  css: "div.head-content__pricing-promotion span.sales span.value"
+  xpath: null
+  type: Text
+image:
+  css: "button.pdp-carousel__slider--item"
+  xpath: null
+  type: Attribute
+  attribute: data-gtm-imageurl
+product_description:
+  css: "div.accordion.product-props-accordion div.card-body"
+  xpath: null
+  type: Text
+short_description:
+  css: "div.head-content__callout-msg span"
+  xpath: null
+  type: Text
+number_of_reviews:
+  css: p.body-font-sm
+  xpath: null
+  type: Text

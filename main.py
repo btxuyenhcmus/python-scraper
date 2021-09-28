@@ -8,6 +8,7 @@ from amazon import Amazon
 from ashford import Ashford
 from colehaan import Colehaan
 from sephora import Sephora
+from coachoutlet import Coachoutlet
 
 
 scraper = Blueprint('scraper', __name__)
@@ -17,7 +18,8 @@ CRAWLER = {
     'www.amazon.com': Amazon.getInstance(),
     'www.ashford.com': Ashford.getInstance(),
     'www.colehaan.com': Colehaan.getInstance(),
-    'www.sephora.com': Sephora.getInstance()
+    'www.sephora.com': Sephora.getInstance(),
+    'www.coachoutlet.com': Coachoutlet.getInstance()
 }
 
 
