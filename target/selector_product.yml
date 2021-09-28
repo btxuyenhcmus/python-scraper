@@ -1,0 +1,29 @@
+name:
+  css: "h1.Heading__StyledHeading-sc-1mp23s9-0 span"
+  xpath: null
+  type: Text
+price:
+  css: div.web-migration-tof__PriceFontSize-sc-14z8sos-16
+  xpath: null
+  type: Text
+image:
+  css: img.ZoomImage__ImageFadeIn-sc-437o28-0
+  xpath: null
+  type: Attribute
+  attribute: src
+short_description:
+  css: "div.styles__StyledRow-sc-1nuqtm0-0:nth-of-type(1) div.styles__StyledCol-ct8kx6-0.bjIkZQ"
+  xpath: null
+  type: Text
+product_description:
+  css: "div.styles__StyledCol-ct8kx6-0 div.h-margin-v-default"
+  xpath: null
+  type: Text
+number_of_reviews:
+  css: "div.styles__ContainerDiv-lm7nxa-0 div.h-padding-l-jumbo"
+  xpath: null
+  type: Text
+rating:
+  css: div.RatingSummary__StyledRating-bxhycp-0
+  xpath: null
+  type: Text
