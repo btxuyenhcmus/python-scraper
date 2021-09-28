@@ -7,6 +7,10 @@ price:
 short_description:
   css: "#featurebullets_feature_div"
   type: Text
+image:
+  css: ".imgTagWrapper img"
+  type: Attribute
+  attribute: data-old-hires
 images:
   css: ".imgTagWrapper img"
   type: Attribute
