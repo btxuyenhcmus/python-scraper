@@ -1,5 +1,9 @@
 from selectorlib import Extractor
 from pyppeteer import launch
+from contextlib import suppress
+from base import RESP_DEFAULT
+import asyncio
+import logging
 import os
 
 pathfile = os.path.dirname(os.path.realpath(__file__))
@@ -39,12 +43,18 @@ class Nike():
         }
 
     async def product(self, url) -> dict:
-        print("Downloading {}".format(url))
-        browser = await launch()
+        logging.info("Downloading {}".format(url))
+        browser = await launch(handleSIGINT=False, handleSIGTERM=False, handleSIGHUP=False, args=['--no-sandbox'])
         page = await browser.newPage()
-        await page.setViewport(dict(width=2600, height=1200))
-        await page.goto(url)
-        content = await page.content()
+        with suppress(asyncio.CancelledError):
+            try:
+                await page.setViewport(dict(width=2600, height=1200))
+                await page.goto(url)
+                content = await page.content()
+            except Exception as e:
+                logging.error(e)
+                return RESP_DEFAULT
+        await page.close()
         await browser.close()
         return Nike.eP.extract(content)
 

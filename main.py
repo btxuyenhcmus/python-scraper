@@ -15,12 +15,19 @@ from maccosmetics import Maccosmetics
 from lacoste import Lacoste
 from tommy import Tommy
 from colourpop import Colourpop
+from jomashop import Jomashop
+from nike import Nike
+from target import Target
+import asyncio
 import re
 import logging
 
 
 scraper = Blueprint('scraper', __name__)
-CRAWLER = {
+loop = asyncio.new_event_loop()
+asyncio.set_event_loop(loop)
+
+REQUEST_WEB = {
     'www.walmart.com': Walmart.getInstance(),
     'www.adidas.com': Adidas.getInstance(),
     'www.amazon.com': Amazon.getInstance(),
@@ -37,13 +44,24 @@ CRAWLER = {
 
 }
 
+PYPPETEER_WEB = {
+    'www.jomashop.com': Jomashop.getInstance(),
+    'www.nike.com': Nike.getInstance(),
+    'www.target.com': Target.getInstance()
+}
+
 
 @scraper.route('/', methods=['POST'])
 def get():
     url = json.loads(request.data)["link"]
     parse_obj = urlparse(url)
-    web = CRAWLER.get(parse_obj.netloc, Base)
-    response = web.product(url)
+    web, response = Base, {}
+    if parse_obj.netloc in REQUEST_WEB:
+        web = REQUEST_WEB.get(parse_obj.netloc, Base)
+        response = web.product(url)
+    if parse_obj.netloc in PYPPETEER_WEB:
+        web = PYPPETEER_WEB.get(parse_obj.netloc, Base)
+        response = loop.run_until_complete(web.product(url))
     try:
         response.update({
             'price': float(re.sub('[^.0-9]', '', response["price"]))

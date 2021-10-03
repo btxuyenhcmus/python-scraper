@@ -7,7 +7,7 @@ price:
   xpath: null
   type: Text
 image:
-  css: img.ZoomImage__ImageFadeIn-sc-437o28-0
+  css: img.styles__ThumbnailImage-beej2j-11
   xpath: null
   type: Attribute
   attribute: src

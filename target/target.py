@@ -1,6 +1,9 @@
-import logging
 from selectorlib import Extractor
 from base import Base, RESP_DEFAULT
+from pyppeteer import launch
+from contextlib import suppress
+import logging
+import asyncio
 import os
 
 pathfile = os.path.dirname(os.path.realpath(__file__))
@@ -24,12 +27,21 @@ class Target(Base):
             Target()
         return Target.__instance
 
-    def product(self, url) -> dict:
-        try:
-            return Target.eP.extract(super().product(url))
-        except Exception as e:
-            logging.error(e)
-            return RESP_DEFAULT
+    async def product(self, url) -> dict:
+        logging.info("Downloading {}".format(url))
+        browser = await launch(handleSIGINT=False, handleSIGTERM=False, handleSIGHUP=False, args=['--no-sandbox'])
+        page = await browser.newPage()
+        with suppress(asyncio.CancelledError):
+            try:
+                await page.setViewport(dict(width=2600, height=1200))
+                await page.goto(url)
+                content = await page.content()
+            except Exception as e:
+                logging.error(e)
+                return RESP_DEFAULT
+        await page.close()
+        await browser.close()
+        return Target.eP.extract(content)
 
     def __str__(self) -> str:
         return "Target Model"
