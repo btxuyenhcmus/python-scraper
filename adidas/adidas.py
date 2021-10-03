@@ -33,14 +33,17 @@ class Adidas(Base):
             data = json.loads(
                 str(soup.find('script', type='application/ld+json'))[50:-9])
             resp = Adidas.eP.extract(html)
-            resp.update({
-                'name': data["name"],
-                'price': data["offers"]["price"],
-                'image': data["image"][0],
-                'number_of_reviews': data["aggregateRating"]["reviewCount"],
-                'rating': data["aggregateRating"]["ratingValue"],
-                'product_description': data["description"]
-            })
+            try:
+                resp.update({
+                    'name': data["name"],
+                    'price': data["offers"]["price"],
+                    'image': data["image"][0],
+                    'number_of_reviews': data["aggregateRating"]["reviewCount"],
+                    'rating': data["aggregateRating"]["ratingValue"],
+                    'product_description': data["description"]
+                })
+            except Exception as e:
+                pass
             return resp
         except Exception as e:
             return RESP_DEFAULT

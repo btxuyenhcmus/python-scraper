@@ -18,12 +18,3 @@ short_description:
   css: span.css-15ro776
   xpath: null
   type: Text
-product_description:
-  css: "div.css-u2scbn div"
-  xpath: null
-  type: Text
-image:
-  css: "img.css-1rovmyu.e65zztl0"
-  xpath: null
-  type: Attribute
-  attribute: src
