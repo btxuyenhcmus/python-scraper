@@ -1,29 +1,4 @@
-name:
-  css: "div.sidebar___2C-EP h1.gl-heading span"
-  xpath: null
-  type: Text
-price:
-  css: "div.sidebar___2C-EP div.gl-price-item"
-  xpath: null
-  type: Text
-image:
-  css: "div.view___CgbJj:nth-of-type(2) img"
-  xpath: null
-  type: Attribute
-  attribute: src
 short_description:
   css: "div.sidebar___2C-EP h5.gl-label span"
-  xpath: null
-  type: Text
-product_description:
-  css: "div.text-content___1EWJO p"
-  xpath: null
-  type: Text
-number_of_reviews:
-  css: "div.sidebar___2C-EP button.star-rating___3TKHd"
-  xpath: null
-  type: Text
-rating:
-  css: div.out-of-5___2H_qH
   xpath: null
   type: Text
