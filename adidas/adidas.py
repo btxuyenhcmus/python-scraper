@@ -1,3 +1,4 @@
+import logging
 from selectorlib import Extractor
 from werkzeug.utils import html
 from base import Base, RESP_DEFAULT
@@ -43,9 +44,10 @@ class Adidas(Base):
                     'product_description': data["description"]
                 })
             except Exception as e:
-                pass
+                logging.error(e)
             return resp
         except Exception as e:
+            logging.error(e)
             return RESP_DEFAULT
 
     def __str__(self) -> str:

@@ -1,5 +1,5 @@
 import requests
-
+import logging
 
 RESP_DEFAULT = {
     'name': None,
@@ -30,7 +30,7 @@ class Base():
         }
 
     def product(self, url) -> dict:
-        print("Downloading {}".format(url))
+        logging.info("Downloading {}".format(url))
         r = requests.get(url, headers=self.headers, timeout=10)
         if r.status_code > 500:
             if "To discuss automated access to Website data please contact" in r.text:

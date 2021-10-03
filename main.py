@@ -16,6 +16,7 @@ from lacoste import Lacoste
 from tommy import Tommy
 from colourpop import Colourpop
 import re
+import logging
 
 
 scraper = Blueprint('scraper', __name__)
@@ -47,6 +48,6 @@ def get():
         response.update({
             'price': float(re.sub('[^.0-9]', '', response["price"]))
         })
-    except Exception:
-        pass
+    except Exception as e:
+        logging.error(e)
     return jsonify(response)

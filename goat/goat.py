@@ -1,3 +1,4 @@
+import logging
 from flask import json
 from base import Base, RESP_DEFAULT
 from bs4 import BeautifulSoup
@@ -35,6 +36,7 @@ class Goat(Base):
                 'price': data["offers"]["lowPrice"]
             }
         except Exception as e:
+            logging.error(e)
             return RESP_DEFAULT
 
     def __str__(self) -> str:

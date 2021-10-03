@@ -1,3 +1,4 @@
+import logging
 from selectorlib import Extractor
 from base import Base, RESP_DEFAULT
 import os
@@ -27,7 +28,7 @@ class UsPuma(Base):
         try:
             return UsPuma.eP.extract(super().product(url))
         except Exception as e:
-            print(e)
+            logging.error(e)
             return RESP_DEFAULT
 
     def __str__(self) -> str:

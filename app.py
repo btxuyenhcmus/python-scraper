@@ -2,6 +2,30 @@ import os
 
 from flask import Flask
 from main import scraper
+from logging import config
+
+log_config = {
+    "version": 1,
+    "root": {
+        "handlers": ["console"],
+        "level": "DEBUG"
+    },
+    "handlers": {
+        "console": {
+            "formatter": "std_out",
+            "class": "logging.StreamHandler",
+            "level": "DEBUG"
+        }
+    },
+    "formatters": {
+        "std_out": {
+            "format": "%(asctime)s : %(levelname)s : %(message)s",
+            "datefmt": "%d-%m-%Y %I:%M:%S"
+        }
+    },
+}
+
+config.dictConfig(log_config)
 
 
 def create_app(test_config=None):

@@ -1,3 +1,4 @@
+import logging
 from selectorlib import Extractor
 from base import Base, RESP_DEFAULT
 import requests
@@ -29,6 +30,7 @@ class Amazon(Base):
         try:
             return Amazon.eP.extract(super().product(url))
         except Exception as e:
+            logging.error(e)
             return RESP_DEFAULT
 
     def search(self, keyword):

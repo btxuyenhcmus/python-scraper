@@ -1,3 +1,4 @@
+import logging
 from selectorlib import Extractor
 from base import Base, RESP_DEFAULT
 from bs4 import BeautifulSoup
@@ -39,9 +40,10 @@ class Maccosmetics(Base):
                     "number_of_reviews": data["aggregateRating"]["reviewCount"]
                 })
             except Exception as e:
-                pass
+                logging.error(e)
             return resp
         except Exception as e:
+            logging.error(e)
             return RESP_DEFAULT
 
     def __str__(self) -> str:
