@@ -32,11 +32,14 @@ class Colourpop(Base):
             data = json.loads(
                 str(soup.find('script', type='application/ld+json'))[38:-10])
             resp = Colourpop.eP.extract(html)
-            resp.update({
-                'name': data["name"],
-                'image': data["image"][0],
-                'price': data["offers"]["price"]
-            })
+            try:
+                resp.update({
+                    'name': data["name"],
+                    'image': data["image"][0],
+                    'price': data["offers"]["price"]
+                })
+            except Exception as e:
+                pass
             return resp
         except Exception as e:
             return RESP_DEFAULT
