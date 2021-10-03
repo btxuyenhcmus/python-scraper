@@ -1,13 +1,11 @@
-from selectorlib import Extractor
 from base import Base, RESP_DEFAULT
-import os
+from bs4 import BeautifulSoup
+from flask import json
 
-pathfile = os.path.dirname(os.path.realpath(__file__))
 DNS_WEB = "https://www.walmart.com"
 
 
 class Walmart(Base):
-    eP = Extractor.from_yaml_file("{}/selector_product.yml".format(pathfile))
     __instance = None
 
     def __init__(self, dns=DNS_WEB) -> None:
@@ -25,7 +23,18 @@ class Walmart(Base):
 
     def product(self, url) -> dict:
         try:
-            return Walmart.eP.extract(super().product(url))
+            soup = BeautifulSoup(super().product(url), 'lxml')
+            data = json.loads(
+                str(soup.find('script', type='application/ld+json'))[60:-9])
+            return {
+                'name': data["name"],
+                'price': data["offers"]["price"],
+                'image': data["image"],
+                'number_of_reviews': data["aggregateRating"]["reviewCount"],
+                'rating': data["aggregateRating"]["ratingValue"],
+                'product_description': data["description"],
+                'short_description': "{} - {}".format(data["sku"], data["gtin13"])
+            }
         except Exception as e:
             return RESP_DEFAULT
 
