@@ -32,11 +32,14 @@ class Maccosmetics(Base):
             data = json.loads(
                 str(soup.find('script', type='application/ld+json'))[35:-9])
             resp = Maccosmetics.eP.extract(html)
-            resp.update({
-                'image': data["image"],
-                "rating": data["aggregateRating"]["ratingValue"],
-                "number_of_reviews": data["aggregateRating"]["reviewCount"]
-            })
+            try:
+                resp.update({
+                    'image': data["image"],
+                    "rating": data["aggregateRating"]["ratingValue"],
+                    "number_of_reviews": data["aggregateRating"]["reviewCount"]
+                })
+            except Exception as e:
+                pass
             return resp
         except Exception as e:
             return RESP_DEFAULT

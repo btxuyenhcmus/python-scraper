@@ -32,10 +32,15 @@ class Lacoste(Base):
             data = json.loads(
                 str(soup.find_all('script', type='application/ld+json')[1])[35:-9])
             resp = Lacoste.eP.extract(html)
-            resp.update({
-                'image': data["image"],
-                'short_description': data["description"]
-            })
+            try:
+                resp.update({
+                    'image': data["image"],
+                    'short_description': data["description"],
+                    'number_of_reviews': data["aggregateRating"]["ratingCount"],
+                    'rating': data["aggregateRating"]["ratingValue"]
+                })
+            except Exception as e:
+                pass
             return resp
         except Exception as e:
             return RESP_DEFAULT

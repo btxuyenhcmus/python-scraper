@@ -10,3 +10,8 @@ product_description:
   css: "div.js-care-section div.js-accordion-child"
   xpath: null
   type: Text
+image:
+  css: "div.offset-mt-1 > picture.pict img.js-zoomable-img"
+  xpath: null
+  type: Attribute
+  attribute: src
