@@ -20,6 +20,10 @@ short_description:
   xpath: null
   type: Text
 number_of_reviews:
-  css: p.body-font-sm
+  css: div.pdp-rating__details-count
+  xpath: null
+  type: Text
+rating:
+  css: div.pdp-rating__details-points-md
   xpath: null
   type: Text
