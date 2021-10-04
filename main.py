@@ -32,8 +32,6 @@ import logging
 
 
 scraper = Blueprint('scraper', __name__)
-loop = asyncio.new_event_loop()
-asyncio.set_event_loop(loop)
 
 REQUEST_WEB = {
     'www.walmart.com': Walmart.getInstance(),
@@ -66,7 +64,7 @@ PYPPETEER_WEB = {
 }
 
 
-@ scraper.route('/', methods=['POST'])
+@scraper.route('/', methods=['POST'])
 def get():
     url = json.loads(request.data)["link"]
     parse_obj = urlparse(url)
@@ -76,6 +74,8 @@ def get():
         response = web.product(url)
     if parse_obj.netloc in PYPPETEER_WEB:
         web = PYPPETEER_WEB.get(parse_obj.netloc, Base)
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
         response = loop.run_until_complete(web.product(url))
     try:
         response.update({
