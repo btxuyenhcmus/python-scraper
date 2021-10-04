@@ -1,0 +1,25 @@
+name:
+  css: "div.column span.productNameInner"
+  xpath: null
+  type: Text
+price:
+  css: "div > div.namePartPriceContainer span.price.offerPrice"
+  xpath: null
+  type: Text
+product_description:
+  css: "div.itemDescription p"
+  xpath: null
+  type: Text
+number_of_reviews:
+  css: span.pr-snippet-review-count
+  xpath: null
+  type: Text
+ratiing:
+  css: div.pr-review-snapshot-snippets-headline
+  xpath: null
+  type: Text
+image:
+  css: "div.product_main_image img"
+  xpath: null
+  type: Attribute
+  attribute: data-src

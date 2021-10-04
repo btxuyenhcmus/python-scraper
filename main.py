@@ -24,6 +24,7 @@ from kiehls import Kiehls
 from victoriassecret import Victoriassecret
 from bathandbodyworks import Bathandbodyworks
 from guessfactory import Guessfactory
+from calvinklein import Calvinklein
 import asyncio
 import re
 import logging
@@ -48,8 +49,8 @@ REQUEST_WEB = {
     'usa.tommy.com': Tommy.getInstance(),
     'colourpop.com': Colourpop.getInstance(),
     'www.bathandbodyworks.com': Bathandbodyworks.getInstance(),
-    'www.guessfactory.com': Guessfactory.getInstance()
-
+    'www.guessfactory.com': Guessfactory.getInstance(),
+    'www.calvinklein.us': Calvinklein.getInstance()
 }
 
 PYPPETEER_WEB = {
