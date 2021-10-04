@@ -1,13 +1,16 @@
-import logging
 from selectorlib import Extractor
-from base import Base, RESP_DEFAULT
+from pyppeteer import launch
+from base import RESP_DEFAULT
+from contextlib import suppress
+import logging
+import asyncio
 import os
 
 pathfile = os.path.dirname(os.path.realpath(__file__))
 DNS_WEB = "https://www.walgreens.com"
 
 
-class Walgreens(Base):
+class Walgreens():
     eP = Extractor.from_yaml_file("{}/selector_product.yml".format(pathfile))
     __instance = None
 
@@ -24,12 +27,43 @@ class Walgreens(Base):
             Walgreens()
         return Walgreens.__instance
 
-    def product(self, url) -> dict:
+    @property
+    def headers(self) -> dict:
+        return {
+            'dnt': '1',
+            'upgrade-insecure-requests': '1',
+            'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36',
+            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+            'sec-fetch-site': 'same-origin',
+            'sec-fetch-mode': 'navigate',
+            'sec-fetch-user': '?1',
+            'sec-fetch-dest': 'document',
+            'referer': self.dns,
+            'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
+        }
+
+    async def product(self, url) -> dict:
+        logging.info("Downloading {}".format(url))
+        browser = await launch(handleSIGINT=False, handleSIGTERM=False, handleSIGHUP=False, args=['--no-sandbox'])
+        page = await browser.newPage()
+        with suppress(asyncio.CancelledError):
+            try:
+                await page.setViewport(dict(width=2600, height=1200))
+                await page.goto(url)
+                content = await page.content()
+            except Exception as e:
+                logging.error(e)
+                return RESP_DEFAULT
+        await page.close()
+        await browser.close()
+        resp = Walgreens.eP.extract(content)
         try:
-            return Walgreens.eP.extract(super().product(url))
+            resp.update({
+                'price': "{}.{}".format(resp["price_int"], resp["price_float"])
+            })
         except Exception as e:
             logging.error(e)
-            return RESP_DEFAULT
+        return resp
 
     def __str__(self) -> str:
         return "Walgreens Model"

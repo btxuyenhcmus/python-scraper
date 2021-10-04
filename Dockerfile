@@ -1,4 +1,5 @@
-FROM python:3.6-slim
+FROM stazi/pyppeteer
+LABEL maintainer="btxuyenhcmus@gmail.com"
 WORKDIR /python-scraper
 COPY . .
 RUN pip3 install -r requirements.txt

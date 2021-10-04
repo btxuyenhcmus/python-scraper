@@ -3,12 +3,12 @@ name:
   xpath: null
   type: Text
 image:
-  css: "a#imgThumbNail1.pull-left img"
+  css: "img#productImg"
   xpath: null
   type: Attribute
-  attribute: src
-price:
-  css: "span.price__contain span.product__price"
+  attribute: content
+price_int:
+  css: "span.product__price span"
   xpath: null
   type: Text
 number_of_reviews:
@@ -17,5 +17,17 @@ number_of_reviews:
   type: Text
 rating:
   css: "a.bv-rating span"
+  xpath: null
+  type: Text
+short_description:
+  css: span.wag-instore-storeAddress
+  xpath: null
+  type: Text
+product_description:
+  css: "li#prodDesc"
+  xpath: null
+  type: Text
+price_float:
+  css: "sup:nth-of-type(2)"
   xpath: null
   type: Text

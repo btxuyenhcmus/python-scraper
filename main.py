@@ -19,6 +19,7 @@ from jomashop import Jomashop
 from nike import Nike
 from target import Target
 from us_puma import UsPuma
+from walgreens import Walgreens
 import asyncio
 import re
 import logging
@@ -49,7 +50,8 @@ PYPPETEER_WEB = {
     'www.jomashop.com': Jomashop.getInstance(),
     'www.nike.com': Nike.getInstance(),
     'www.target.com': Target.getInstance(),
-    'us.puma.com': UsPuma.getInstance()
+    'us.puma.com': UsPuma.getInstance(),
+    'www.walgreens.com': Walgreens.getInstance()
 }
 
 
