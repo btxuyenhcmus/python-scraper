@@ -45,11 +45,10 @@ class Victoriassecret():
 
     async def product(self, url) -> dict:
         logging.info("Downloading {}".format(url))
-        browser = await launch(handleSIGINT=False, handleSIGTERM=False, handleSIGHUP=False, args=['--no-sandbox'])
+        browser = await launch(ignoreHTTPSErrors=True, handleSIGINT=False, handleSIGTERM=False, handleSIGHUP=False, args=['--no-sandbox'], width=2600, height=1200)
         page = await browser.newPage()
         with suppress(asyncio.CancelledError):
             try:
-                await page.setViewport(dict(width=2600, height=1200))
                 await page.goto(url)
                 await page.waitForSelector('h1.fabric-purchasable-product-component-short-description')
                 content = await page.content()
