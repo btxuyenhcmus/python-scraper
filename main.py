@@ -18,6 +18,7 @@ from colourpop import Colourpop
 from jomashop import Jomashop
 from nike import Nike
 from target import Target
+from us_puma import UsPuma
 import asyncio
 import re
 import logging
@@ -47,7 +48,8 @@ REQUEST_WEB = {
 PYPPETEER_WEB = {
     'www.jomashop.com': Jomashop.getInstance(),
     'www.nike.com': Nike.getInstance(),
-    'www.target.com': Target.getInstance()
+    'www.target.com': Target.getInstance(),
+    'us.puma.com': UsPuma.getInstance()
 }
 
 

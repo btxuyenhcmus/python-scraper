@@ -19,7 +19,7 @@ number_of_reviews:
   xpath: null
   type: Text
 image:
-  css: "div.glide-slide.glide__slide--active img.glide-slide-image"
+  css: "div.glide-slide:nth-of-type(1) img.glide-slide-image"
   xpath: null
   type: Attribute
   attribute: src

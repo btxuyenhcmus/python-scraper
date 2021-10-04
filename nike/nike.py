@@ -59,4 +59,4 @@ class Nike():
         return Nike.eP.extract(content)
 
     def __str__(self) -> str:
-        return "Nike"
+        return "Nike Model"
