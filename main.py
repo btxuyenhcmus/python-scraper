@@ -21,6 +21,7 @@ from target import Target
 from us_puma import UsPuma
 from walgreens import Walgreens
 from kiehls import Kiehls
+from victoriassecret import Victoriassecret
 import asyncio
 import re
 import logging
@@ -53,7 +54,8 @@ PYPPETEER_WEB = {
     'www.target.com': Target.getInstance(),
     'us.puma.com': UsPuma.getInstance(),
     'www.walgreens.com': Walgreens.getInstance(),
-    'www.kiehls.com': Kiehls.getInstance()
+    'www.kiehls.com': Kiehls.getInstance(),
+    'www.victoriassecret.com': Victoriassecret.getInstance()
 }
 
 

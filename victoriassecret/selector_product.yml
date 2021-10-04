@@ -1,0 +1,29 @@
+name:
+  css: h1.fabric-purchasable-product-component-short-description
+  xpath: null
+  type: Text
+price:
+  css: "div.fabric-purchasable-product-component-simplified-price-and-item-number-wrapper div.fabric-purchasable-product-component-simplified-price"
+  xpath: null
+  type: Text
+number_of_reviews:
+  css: "button.fabric-ratings-and-reviews-component-overview-rating-count span.ff-primary"
+  xpath: null
+  type: Text
+rating:
+  css: div.fabric-ratings-and-reviews-component-overview-stars
+  xpath: null
+  type: Text
+product_description:
+  css: "div.fabric-purchasable-product-component-right-wrapper div.fabric-purchasable-product-component-description"
+  xpath: null
+  type: Text
+short_description:
+  css: "div.fabric-purchasable-product-component-simplified-price-and-item-number-wrapper p.fabric-purchasable-product-component-item-number"
+  xpath: null
+  type: Text
+image:
+  css: "img#primaryProductAltImages0-1.prism-image"
+  xpath: null
+  type: Attribute
+  attribute: src
