@@ -23,6 +23,7 @@ from walgreens import Walgreens
 from kiehls import Kiehls
 from victoriassecret import Victoriassecret
 from bathandbodyworks import Bathandbodyworks
+from guessfactory import Guessfactory
 import asyncio
 import re
 import logging
@@ -46,7 +47,8 @@ REQUEST_WEB = {
     'www.lacoste.com': Lacoste.getInstance(),
     'usa.tommy.com': Tommy.getInstance(),
     'colourpop.com': Colourpop.getInstance(),
-    'www.bathandbodyworks.com': Bathandbodyworks.getInstance()
+    'www.bathandbodyworks.com': Bathandbodyworks.getInstance(),
+    'www.guessfactory.com': Guessfactory.getInstance()
 
 }
 
