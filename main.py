@@ -22,6 +22,7 @@ from us_puma import UsPuma
 from walgreens import Walgreens
 from kiehls import Kiehls
 from victoriassecret import Victoriassecret
+from bathandbodyworks import Bathandbodyworks
 import asyncio
 import re
 import logging
@@ -44,7 +45,8 @@ REQUEST_WEB = {
     'www.maccosmetics.com': Maccosmetics.getInstance(),
     'www.lacoste.com': Lacoste.getInstance(),
     'usa.tommy.com': Tommy.getInstance(),
-    'colourpop.com': Colourpop.getInstance()
+    'colourpop.com': Colourpop.getInstance(),
+    'www.bathandbodyworks.com': Bathandbodyworks.getInstance()
 
 }
 

@@ -1,0 +1,33 @@
+name:
+  css: h1.product-name
+  xpath: null
+  type: Text
+saled:
+  css: "div.product-col-2 section.price-sales"
+  xpath: null
+  type: Text
+notsaled:
+  css: "div.product-col-2 span.price-sales"
+  xpath: null
+  type: Text
+image:
+  css: "div.slider-owl-pdp img"
+  xpath: null
+  type: Attribute
+  attribute: src
+number_of_reviews:
+  css: div.bv_numReviews_text
+  xpath: null
+  type: Text
+rating:
+  css: div.bv_avgRating_component_container
+  xpath: null
+  type: Text
+short_description:
+  css: "div.promotion:nth-of-type(4) span.callout-message"
+  xpath: null
+  type: Text
+product_description:
+  css: div.ui-accordion-content.ui-accordion-content-active
+  xpath: null
+  type: Text
