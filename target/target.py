@@ -34,6 +34,7 @@ class Target(Base):
         with suppress(asyncio.CancelledError):
             try:
                 await page.goto(url)
+                await page.waitForSelector('h1.Heading__StyledHeading-sc-1mp23s9-0 span')
                 content = await page.content()
             except Exception as e:
                 logging.error(e)

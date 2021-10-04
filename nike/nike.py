@@ -49,6 +49,7 @@ class Nike():
         with suppress(asyncio.CancelledError):
             try:
                 await page.goto(url)
+                await page.waitForSelector('div.prl0-sm h1.headline-2')
                 content = await page.content()
             except Exception as e:
                 logging.error(e)

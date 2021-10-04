@@ -49,6 +49,7 @@ class Jomashop():
         with suppress(asyncio.CancelledError):
             try:
                 await page.goto(url)
+                await page.waitForSelector('span.product-name')
                 content = await page.content()
             except Exception as e:
                 logging.error(e)

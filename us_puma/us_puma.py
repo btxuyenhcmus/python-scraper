@@ -49,6 +49,7 @@ class UsPuma():
         with suppress(asyncio.CancelledError):
             try:
                 await page.goto(url)
+                await page.waitForSelector('h1.product-name')
                 content = await page.content()
             except Exception as e:
                 logging.error(e)
