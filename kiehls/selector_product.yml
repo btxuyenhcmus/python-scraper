@@ -1,0 +1,29 @@
+name:
+  css: h1.c-product-main__name
+  xpath: null
+  type: Text
+price:
+  css: span.c-product-price__value
+  xpath: null
+  type: Text
+short_description:
+  css: h2.c-product-main__subtitle
+  xpath: null
+  type: Text
+number_of_reviews:
+  css: div.bv_numReviews_text
+  xpath: null
+  type: Text
+product_description:
+  css: p.c-content-tile__description
+  xpath: null
+  type: Text
+image:
+  css: "div.c-product-detail-image__image div.c-carousel__item.m-visible img"
+  xpath: null
+  type: Attribute
+  attribute: src
+rating:
+  css: div.bv_avgRating_component_container
+  xpath: null
+  type: Text

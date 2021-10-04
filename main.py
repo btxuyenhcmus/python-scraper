@@ -20,6 +20,7 @@ from nike import Nike
 from target import Target
 from us_puma import UsPuma
 from walgreens import Walgreens
+from kiehls import Kiehls
 import asyncio
 import re
 import logging
@@ -51,11 +52,12 @@ PYPPETEER_WEB = {
     'www.nike.com': Nike.getInstance(),
     'www.target.com': Target.getInstance(),
     'us.puma.com': UsPuma.getInstance(),
-    'www.walgreens.com': Walgreens.getInstance()
+    'www.walgreens.com': Walgreens.getInstance(),
+    'www.kiehls.com': Kiehls.getInstance()
 }
 
 
-@scraper.route('/', methods=['POST'])
+@ scraper.route('/', methods=['POST'])
 def get():
     url = json.loads(request.data)["link"]
     parse_obj = urlparse(url)
