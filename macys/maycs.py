@@ -44,11 +44,12 @@ class Macys():
 
     async def product(self, url) -> dict:
         logging.info("Downloading {}".format(url))
-        browser = await launch(ignoreHTTPSErrors=True, handleSIGINT=False, handleSIGTERM=False, handleSIGHUP=False, args=['--no-sandbox'], width=2600, height=1200)
+        browser = await launch(headless=False, ignoreHTTPSErrors=True, handleSIGINT=False, handleSIGTERM=False, handleSIGHUP=False, args=['--no-sandbox', '--proxy-server=http://35.236.108.231:80'], width=2600, height=1200)
         page = await browser.newPage()
         with suppress(asyncio.CancelledError):
             try:
                 await page.goto(url)
+                await page.waitForSelector('div.standard-right-content h1.p-brand-title')
                 content = await page.content()
             except Exception as e:
                 logging.error(e)
