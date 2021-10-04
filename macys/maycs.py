@@ -1,16 +1,17 @@
-from selectorlib import Extractor
-from pyppeteer import browser, launch
-from base import RESP_DEFAULT
-from contextlib import suppress
 import logging
-import asyncio
+from selectorlib import Extractor
+import requests
+from base import Base, RESP_DEFAULT
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 pathfile = os.path.dirname(os.path.realpath(__file__))
 DNS_WEB = "https://www.macys.com"
 
 
-class Macys():
+class Macys(Base):
     eP = Extractor.from_yaml_file("{}/selector_product.yml".format(pathfile))
     __instance = None
 
@@ -27,39 +28,27 @@ class Macys():
             Macys()
         return Macys.__instance
 
-    @property
-    def headers(self) -> dict:
-        return {
-            'dnt': '1',
-            'upgrade-insecure-requests': '1',
-            'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36',
-            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-            'sec-fetch-site': 'same-origin',
-            'sec-fetch-mode': 'navigate',
-            'sec-fetch-user': '?1',
-            'sec-fetch-dest': 'document',
-            'referer': self.dns,
-            'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
-        }
-
-    async def product(self, url) -> dict:
-        logging.info("Downloading {}".format(url))
-        browser = await launch(headless=False, ignoreHTTPSErrors=True, handleSIGINT=False, handleSIGTERM=False, handleSIGHUP=False, args=['--no-sandbox', '--proxy-server=http://35.236.108.231:80'], width=2600, height=1200)
-        page = await browser.newPage()
-        with suppress(asyncio.CancelledError):
-            try:
-                await page.goto(url)
-                await page.waitForSelector('div.standard-right-content h1.p-brand-title')
-                content = await page.content()
-            except Exception as e:
-                logging.error(e)
-        await page.close()
-        await browser.close()
+    def product(self, url) -> dict:
         try:
-            return Macys.eP.extract(content)
+            logging.info("Downloading {}".format(url))
+            proxyDict = {
+                'http': os.getenv('HTTP_PROXY'),
+                'https': os.getenv('HTTPS_PROXY')
+            }
+            r = requests.get(url, headers=self.headers,
+                             timeout=10, proxies=proxyDict)
+            if r.status_code > 500:
+                if "To discuss automated access to Website data please contact" in r.text:
+                    print(
+                        "Page %s was blocked by Website. Please try using better proxies\n" % url)
+                else:
+                    print("Page %s must have been blocked by Website as the status code was %d" % (
+                        url, r.status_code))
+                return {}
+            return Macys.eP.extract(r.text)
         except Exception as e:
             logging.error(e)
-        return RESP_DEFAULT
+            return RESP_DEFAULT
 
     def __str__(self) -> str:
         return "Macys Model"

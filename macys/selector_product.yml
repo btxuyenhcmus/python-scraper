@@ -6,3 +6,16 @@ price:
   css: "div.lowest-sale-price span.bold"
   xpath: null
   type: Text
+image:
+  css: "li.main-img:nth-of-type(2) picture img"
+  xpath: null
+  type: Attribute
+  attribute: src
+product_description:
+  css: "div.accordion.active div.accordion-body"
+  xpath: null
+  type: Text
+short_description:
+  css: div.color-header
+  xpath: null
+  type: Text

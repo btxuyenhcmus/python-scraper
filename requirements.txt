@@ -3,3 +3,4 @@ requests
 pyppeteer
 flask
 bs4
+python-dotenv

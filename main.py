@@ -49,7 +49,8 @@ REQUEST_WEB = {
     'colourpop.com': Colourpop.getInstance(),
     'www.bathandbodyworks.com': Bathandbodyworks.getInstance(),
     'www.guessfactory.com': Guessfactory.getInstance(),
-    'www.calvinklein.us': Calvinklein.getInstance()
+    'www.calvinklein.us': Calvinklein.getInstance(),
+    'www.macys.com': Macys.getInstance()
 }
 
 PYPPETEER_WEB = {
@@ -60,7 +61,6 @@ PYPPETEER_WEB = {
     'www.walgreens.com': Walgreens.getInstance(),
     'www.kiehls.com': Kiehls.getInstance(),
     'www.victoriassecret.com': Victoriassecret.getInstance(),
-    'www.macys.com': Macys.getInstance()
 }
 
 
