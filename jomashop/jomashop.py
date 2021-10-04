@@ -53,10 +53,13 @@ class Jomashop():
                 content = await page.content()
             except Exception as e:
                 logging.error(e)
-                return RESP_DEFAULT
         await page.close()
         await browser.close()
-        return Jomashop.eP.extract(content)
+        try:
+            return Jomashop.eP.extract(content)
+        except Exception as e:
+            logging.debug(e)
+        return RESP_DEFAULT
 
     def __str__(self) -> str:
-        return "Jomashop"
+        return "Jomashop Model"

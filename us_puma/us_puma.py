@@ -53,10 +53,13 @@ class UsPuma():
                 content = await page.content()
             except Exception as e:
                 logging.error(e)
-                return RESP_DEFAULT
         await page.close()
         await browser.close()
-        return UsPuma.eP.extract(content)
+        try:
+            return UsPuma.eP.extract(content)
+        except Exception as e:
+            logging.error(e)
+        return RESP_DEFAULT
 
     def __str__(self) -> str:
         return "UsPuma Model"

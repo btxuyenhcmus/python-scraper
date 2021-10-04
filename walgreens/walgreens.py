@@ -53,17 +53,17 @@ class Walgreens():
                 content = await page.content()
             except Exception as e:
                 logging.error(e)
-                return RESP_DEFAULT
         await page.close()
         await browser.close()
-        resp = Walgreens.eP.extract(content)
         try:
+            resp = Walgreens.eP.extract(content)
             resp.update({
                 'price': "{}.{}".format(resp["price_int"], resp["price_float"])
             })
+            return resp
         except Exception as e:
             logging.error(e)
-        return resp
+        return RESP_DEFAULT
 
     def __str__(self) -> str:
         return "Walgreens Model"

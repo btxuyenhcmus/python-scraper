@@ -53,10 +53,13 @@ class Kiehls():
                 content = await page.content()
             except Exception as e:
                 logging.error(e)
-                return RESP_DEFAULT
         await page.close()
         await browser.close()
-        return Kiehls.eP.extract(content)
+        try:
+            return Kiehls.eP.extract(content)
+        except Exception as e:
+            logging.error(e)
+        return RESP_DEFAULT
 
     def __str__(self) -> str:
         return "Kiehls"

@@ -55,14 +55,17 @@ class Victoriassecret():
                 content = await page.content()
             except Exception as e:
                 logging.error(e)
-                return RESP_DEFAULT
         await page.close()
         await browser.close()
-        resp = Victoriassecret.eP.extract(content)
-        resp.update({
-            'image': urljoin(Victoriassecret.__instance.dns, resp["image"])
-        })
-        return resp
+        try:
+            resp = Victoriassecret.eP.extract(content)
+            resp.update({
+                'image': urljoin(Victoriassecret.__instance.dns, resp["image"])
+            })
+            return resp
+        except Exception as e:
+            logging.error(e)
+        return RESP_DEFAULT
 
     def __str__(self) -> str:
         return "Victoriassecret"

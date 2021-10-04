@@ -1,31 +1,31 @@
 from selectorlib import Extractor
-from pyppeteer import launch
-from contextlib import suppress
+from pyppeteer import browser, launch
 from base import RESP_DEFAULT
-import asyncio
+from contextlib import suppress
 import logging
+import asyncio
 import os
 
 pathfile = os.path.dirname(os.path.realpath(__file__))
-DNS_WEB = "https://www.nike.com"
+DNS_WEB = "https://www.macys.com"
 
 
-class Nike():
+class Macys():
     eP = Extractor.from_yaml_file("{}/selector_product.yml".format(pathfile))
     __instance = None
 
     def __init__(self, dns=DNS_WEB) -> None:
-        if Nike.__instance != None:
+        if Macys.__instance != None:
             raise Exception("This is singleton class!!")
         self.dns = dns
-        Nike.__instance = self
+        Macys.__instance = self
 
     @staticmethod
     def getInstance() -> object:
         """This is static method be called by class"""
-        if Nike.__instance == None:
-            Nike()
-        return Nike.__instance
+        if Macys.__instance == None:
+            Macys()
+        return Macys.__instance
 
     @property
     def headers(self) -> dict:
@@ -56,10 +56,10 @@ class Nike():
         await page.close()
         await browser.close()
         try:
-            return Nike.eP.extract(content)
+            return Macys.eP.extract(content)
         except Exception as e:
             logging.error(e)
         return RESP_DEFAULT
 
     def __str__(self) -> str:
-        return "Nike Model"
+        return "Macys Model"

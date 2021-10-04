@@ -25,6 +25,7 @@ from victoriassecret import Victoriassecret
 from bathandbodyworks import Bathandbodyworks
 from guessfactory import Guessfactory
 from calvinklein import Calvinklein
+from macys import Macys
 import asyncio
 import re
 import logging
@@ -60,7 +61,8 @@ PYPPETEER_WEB = {
     'us.puma.com': UsPuma.getInstance(),
     'www.walgreens.com': Walgreens.getInstance(),
     'www.kiehls.com': Kiehls.getInstance(),
-    'www.victoriassecret.com': Victoriassecret.getInstance()
+    'www.victoriassecret.com': Victoriassecret.getInstance(),
+    'www.macys.com': Macys.getInstance()
 }
 
 

@@ -1,0 +1,8 @@
+name:
+  css: "div.standard-right-content h1.p-brand-title"
+  xpath: null
+  type: Text
+price:
+  css: "div.lowest-sale-price span.bold"
+  xpath: null
+  type: Text
