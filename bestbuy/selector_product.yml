@@ -1,0 +1,29 @@
+name:
+  css: h1.heading-5
+  xpath: null
+  type: Text
+price:
+  css: "div.price-box div.priceView-hero-price span:nth-of-type(1)"
+  xpath: null
+  type: Text
+image:
+  css: img.primary-image
+  xpath: null
+  type: Attribute
+  attribute: src
+number_of_reviews:
+  css: "span.popover-wrapper span.c-reviews-v4"
+  xpath: null
+  type: Text
+rating:
+  css: span.ugc-c-review-average
+  xpath: null
+  type: Text
+short_description:
+  css: div.data-section
+  xpath: null
+  type: Text
+product_description:
+  css: "div.html-fragment div div"
+  xpath: null
+  type: Text

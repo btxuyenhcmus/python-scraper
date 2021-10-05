@@ -27,6 +27,7 @@ from guessfactory import Guessfactory
 from calvinklein import Calvinklein
 from macys import Macys
 from overstock import Overstock
+from bestbuy import Bestbuy
 import asyncio
 import re
 import logging
@@ -52,7 +53,8 @@ REQUEST_WEB = {
     'www.guessfactory.com': Guessfactory.getInstance(),
     'www.calvinklein.us': Calvinklein.getInstance(),
     'www.macys.com': Macys.getInstance(),
-    'www.overstock.com': Overstock.getInstance()
+    'www.overstock.com': Overstock.getInstance(),
+    'www.bestbuy.com': Bestbuy.getInstance()
 }
 
 PYPPETEER_WEB = {
