@@ -2,8 +2,12 @@ name:
   css: h1.heading-5
   xpath: null
   type: Text
-price:
+price_1:
   css: "div.price-box div.priceView-hero-price span:nth-of-type(1)"
+  xpath: null
+  type: Text
+price_2:
+  css: "div.col-xs-12 div.row div.priceView-hero-price span:nth-of-type(1)"
   xpath: null
   type: Text
 image:

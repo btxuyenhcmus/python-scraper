@@ -26,7 +26,11 @@ class Bestbuy(Base):
 
     def product(self, url) -> dict:
         try:
-            return Bestbuy.eP.extract(super().product(url))
+            resp = Bestbuy.eP.extract(super().product(url))
+            resp.update({
+                'price': resp["price_1"] and resp["price_1"] or resp["price_2"]
+            })
+            return resp
         except Exception as e:
             logging.error(e)
             return RESP_DEFAULT
