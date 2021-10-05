@@ -1,0 +1,25 @@
+name:
+  css: h1._3Bj68d3
+  xpath: null
+  type: Text
+price:
+  css: span.undefined
+  xpath: null
+  type: Text
+image:
+  css: "div#image-gallery img:nth-of-type(1)"
+  xpath: null
+  type: Attribute
+  attribute: src
+number_of_reviews:
+  css: span._2ogMrYo
+  xpath: null
+  type: Text
+product_desctiption:
+  css: "div._3tmxcTW:nth-of-type(1)"
+  xpath: null
+  type: Text
+rating:
+  css: p._3jo1eCV
+  xpath: null
+  type: Text

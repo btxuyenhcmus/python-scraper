@@ -26,6 +26,7 @@ from bathandbodyworks import Bathandbodyworks
 from guessfactory import Guessfactory
 from calvinklein import Calvinklein
 from macys import Macys
+from overstock import Overstock
 import asyncio
 import re
 import logging
@@ -50,7 +51,8 @@ REQUEST_WEB = {
     'www.bathandbodyworks.com': Bathandbodyworks.getInstance(),
     'www.guessfactory.com': Guessfactory.getInstance(),
     'www.calvinklein.us': Calvinklein.getInstance(),
-    'www.macys.com': Macys.getInstance()
+    'www.macys.com': Macys.getInstance(),
+    'www.overstock.com': Overstock.getInstance()
 }
 
 PYPPETEER_WEB = {
