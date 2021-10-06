@@ -1,0 +1,20 @@
+name:
+  css: h1.product-hero__details__title
+  xpath: null
+  type: Text
+price:
+  css: span.product-hero__price
+  xpath: null
+  type: Text
+product_description:
+  css: "section.product-detail div.accordion__body__content"
+  xpath: null
+  type: Text
+number_of_reviews:
+  css: a.f2
+  xpath: null
+  type: Text
+rating:
+  css: "div.product-hero__reviews span.f2"
+  xpath: null
+  type: Text

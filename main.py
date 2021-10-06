@@ -29,6 +29,7 @@ from macys import Macys
 from overstock import Overstock
 from bestbuy import Bestbuy
 from us_pandora import UsPandora
+from fentybeauty import Fentybeauty
 import asyncio
 import re
 import logging
@@ -56,7 +57,8 @@ REQUEST_WEB = {
     'www.macys.com': Macys.getInstance(),
     'www.overstock.com': Overstock.getInstance(),
     'www.bestbuy.com': Bestbuy.getInstance(),
-    'us.pandora.net': UsPandora.getInstance()
+    'us.pandora.net': UsPandora.getInstance(),
+    'fentybeauty.com': Fentybeauty.getInstance()
 }
 
 PYPPETEER_WEB = {

@@ -1,0 +1,1 @@
+from .fentybeauty import Fentybeauty
