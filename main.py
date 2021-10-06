@@ -28,6 +28,7 @@ from calvinklein import Calvinklein
 from macys import Macys
 from overstock import Overstock
 from bestbuy import Bestbuy
+from us_pandora import UsPandora
 import asyncio
 import re
 import logging
@@ -54,7 +55,8 @@ REQUEST_WEB = {
     'www.calvinklein.us': Calvinklein.getInstance(),
     'www.macys.com': Macys.getInstance(),
     'www.overstock.com': Overstock.getInstance(),
-    'www.bestbuy.com': Bestbuy.getInstance()
+    'www.bestbuy.com': Bestbuy.getInstance(),
+    'us.pandora.net': UsPandora.getInstance()
 }
 
 PYPPETEER_WEB = {

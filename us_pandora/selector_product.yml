@@ -1,0 +1,21 @@
+name:
+  css: h1.product-name
+  xpath: null
+  type: Text
+price:
+  css: "div.price-holder span.price-sales"
+  xpath: null
+  type: Text
+image:
+  css: "div.product-image-zoom a"
+  xpath: null
+  type: Attribute
+  attribute: href
+product_description:
+  css: "div.detailsColumn div.desktop-detail-text"
+  xpath: null
+  type: Text
+short_descrtiption:
+  css: div.lc-a1-info-text
+  xpath: null
+  type: Text
