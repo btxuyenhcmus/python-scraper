@@ -30,6 +30,7 @@ from overstock import Overstock
 from bestbuy import Bestbuy
 from us_pandora import UsPandora
 from fentybeauty import Fentybeauty
+from belk import Belk
 import asyncio
 import re
 import logging
@@ -58,7 +59,8 @@ REQUEST_WEB = {
     'www.overstock.com': Overstock.getInstance(),
     'www.bestbuy.com': Bestbuy.getInstance(),
     'us.pandora.net': UsPandora.getInstance(),
-    'fentybeauty.com': Fentybeauty.getInstance()
+    'fentybeauty.com': Fentybeauty.getInstance(),
+    'www.belk.com': Belk.getInstance()
 }
 
 PYPPETEER_WEB = {

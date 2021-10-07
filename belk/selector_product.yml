@@ -1,0 +1,21 @@
+name:
+  css: h1.product-name
+  xpath: null
+  type: Text
+price:
+  css: "span.price-sales span.visually-hidden"
+  xpath: null
+  type: Text
+image:
+  css: "div.product-image source.source-large"
+  xpath: null
+  type: Attribute
+  attribute: srcset
+number_of_reviews:
+  css: div.bv_numReviews_text
+  xpath: null
+  type: Text
+product_description:
+  css: div.copyline-tab
+  xpath: null
+  type: Text
