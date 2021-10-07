@@ -1,7 +1,7 @@
 from selectorlib import Extractor
 from pyppeteer import launch
 from contextlib import suppress
-from base import RESP_DEFAULT
+from base import RESP_DEFAULT, VIEW_DEFAULT
 import asyncio
 import logging
 import os
@@ -44,7 +44,7 @@ class Nike():
 
     async def product(self, url) -> dict:
         logging.info("Downloading {}".format(url))
-        browser = await launch(ignoreHTTPSErrors=True, handleSIGINT=False, handleSIGTERM=False, handleSIGHUP=False, args=['--no-sandbox'], width=2600, height=1200)
+        browser = await launch(ignoreHTTPSErrors=True, handleSIGINT=False, handleSIGTERM=False, handleSIGHUP=False, args=['--no-sandbox'], defaultViewport=VIEW_DEFAULT)
         page = await browser.newPage()
         with suppress(asyncio.CancelledError):
             try:

@@ -1,6 +1,6 @@
 from selectorlib import Extractor
 from pyppeteer import launch
-from base import RESP_DEFAULT
+from base import RESP_DEFAULT, VIEW_DEFAULT
 from contextlib import suppress
 import asyncio
 import logging
@@ -44,7 +44,7 @@ class UsPuma():
 
     async def product(self, url) -> dict:
         logging.info("Downloading {}".format(url))
-        browser = await launch(ignoreHTTPSErrors=True, handleSIGINT=False, handleSIGTERM=False, handleSIGHUP=False, args=['--no-sandbox'], width=2600, height=1200)
+        browser = await launch(ignoreHTTPSErrors=True, handleSIGINT=False, handleSIGTERM=False, handleSIGHUP=False, args=['--no-sandbox'], defaultViewport=VIEW_DEFAULT)
         page = await browser.newPage()
         with suppress(asyncio.CancelledError):
             try:

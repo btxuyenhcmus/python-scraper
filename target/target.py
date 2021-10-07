@@ -1,5 +1,5 @@
 from selectorlib import Extractor
-from base import Base, RESP_DEFAULT
+from base import VIEW_DEFAULT, Base, RESP_DEFAULT
 from pyppeteer import launch
 from contextlib import suppress
 import logging
@@ -29,7 +29,7 @@ class Target(Base):
 
     async def product(self, url) -> dict:
         logging.info("Downloading {}".format(url))
-        browser = await launch(ignoreHTTPSErrors=True, handleSIGINT=False, handleSIGTERM=False, handleSIGHUP=False, args=['--no-sandbox'], width=2600, height=1200)
+        browser = await launch(ignoreHTTPSErrors=True, handleSIGINT=False, handleSIGTERM=False, handleSIGHUP=False, args=['--no-sandbox'], defaultViewport=VIEW_DEFAULT)
         page = await browser.newPage()
         with suppress(asyncio.CancelledError):
             try:

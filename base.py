@@ -11,6 +11,8 @@ RESP_DEFAULT = {
     'image': None
 }
 
+VIEW_DEFAULT = dict(width=1600, height=1200)
+
 
 class Base():
     @property
