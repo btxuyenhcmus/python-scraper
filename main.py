@@ -75,7 +75,7 @@ PYPPETEER_WEB = {
 
 
 @scraper.route('/', methods=['POST'])
-def get():
+def scrap():
     url = json.loads(request.data)["link"]
     parse_obj = urlparse(url)
     web, response = Base, {}
@@ -84,9 +84,8 @@ def get():
         response = web.product(url)
     if parse_obj.netloc in PYPPETEER_WEB:
         web = PYPPETEER_WEB.get(parse_obj.netloc, Base)
-        loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(loop)
-        response = loop.run_until_complete(web.product(url))
+        asyncio.set_event_loop(asyncio.new_event_loop())
+        response = asyncio.get_event_loop().run_until_complete(web.product(url))
     try:
         response.update({
             'price': float(re.sub('[^.0-9]', '', response["price"]))
