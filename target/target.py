@@ -1,16 +1,15 @@
 from selectorlib import Extractor
-from base import VIEW_DEFAULT, Base, RESP_DEFAULT
-from pyppeteer import launch
-from contextlib import suppress
+from base import RESP_DEFAULT
+from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
 import logging
-import asyncio
 import os
 
 pathfile = os.path.dirname(os.path.realpath(__file__))
 DNS_WEB = "https://www.target.com"
 
 
-class Target(Base):
+class Target():
     eP = Extractor.from_yaml_file("{}/selector_product.yml".format(pathfile))
     __instance = None
 
@@ -27,21 +26,24 @@ class Target(Base):
             Target()
         return Target.__instance
 
-    async def product(self, url) -> dict:
+    def product(self, url) -> dict:
         logging.info("Downloading {}".format(url))
-        browser = await launch(ignoreHTTPSErrors=True, handleSIGINT=False, handleSIGTERM=False, handleSIGHUP=False, args=['--no-sandbox'], defaultViewport=VIEW_DEFAULT)
-        page = await browser.newPage()
-        with suppress(asyncio.CancelledError):
-            try:
-                await page.goto(url)
-                await page.waitForSelector('h1.Heading__StyledHeading-sc-1mp23s9-0 span')
-                content = await page.content()
-            except Exception as e:
-                logging.error(e)
-                return RESP_DEFAULT
-        await page.close()
-        await browser.close()
-        return Target.eP.extract(content)
+        options = webdriver.ChromeOptions()
+        options.add_argument("headless")
+        options.add_argument("--no-sandbox")
+        try:
+            browser = webdriver.Chrome(
+                ChromeDriverManager().install(), options=options)
+            browser.get(url)
+            content = browser.page_source
+        except Exception as e:
+            logging.error(e)
+        browser.close()
+        try:
+            return Target.eP.extract(content)
+        except Exception as e:
+            logging.error(e)
+        return RESP_DEFAULT
 
     def __str__(self) -> str:
         return "Target Model"

@@ -1,10 +1,9 @@
 from selectorlib import Extractor
-from pyppeteer import launch
-from base import RESP_DEFAULT, VIEW_DEFAULT
-from contextlib import suppress
-import asyncio
+from base import RESP_DEFAULT
 import logging
 import os
+from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
 
 pathfile = os.path.dirname(os.path.realpath(__file__))
 DNS_WEB = "https://www.jomashop.com"
@@ -42,23 +41,23 @@ class Jomashop():
             'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
         }
 
-    async def product(self, url) -> dict:
+    def product(self, url) -> dict:
         logging.info("Downloading {}".format(url))
-        browser = await launch(ignoreHTTPSErrors=True, handleSIGINT=False, handleSIGTERM=False, handleSIGHUP=False, args=['--no-sandbox'], defaultViewport=VIEW_DEFAULT)
-        page = await browser.newPage()
-        with suppress(asyncio.CancelledError):
-            try:
-                await page.goto(url)
-                await page.waitForSelector('span.product-name')
-                content = await page.content()
-            except Exception as e:
-                logging.error(e)
-        await page.close()
-        await browser.close()
+        options = webdriver.ChromeOptions()
+        options.add_argument("headless")
+        options.add_argument("--no-sandbox")
+        try:
+            browser = webdriver.Chrome(
+                ChromeDriverManager().install(), options=options)
+            browser.get(url)
+            content = browser.page_source
+        except Exception as e:
+            logging.error(e)
+        browser.close()
         try:
             return Jomashop.eP.extract(content)
         except Exception as e:
-            logging.debug(e)
+            logging.error(e)
         return RESP_DEFAULT
 
     def __str__(self) -> str:

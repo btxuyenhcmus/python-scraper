@@ -1,8 +1,7 @@
 from selectorlib import Extractor
-from pyppeteer import launch
-from contextlib import suppress
-from base import RESP_DEFAULT, VIEW_DEFAULT
-import asyncio
+from base import RESP_DEFAULT
+from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
 import logging
 import os
 
@@ -42,19 +41,19 @@ class Nike():
             'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
         }
 
-    async def product(self, url) -> dict:
+    def product(self, url) -> dict:
         logging.info("Downloading {}".format(url))
-        browser = await launch(ignoreHTTPSErrors=True, handleSIGINT=False, handleSIGTERM=False, handleSIGHUP=False, args=['--no-sandbox'], defaultViewport=VIEW_DEFAULT)
-        page = await browser.newPage()
-        with suppress(asyncio.CancelledError):
-            try:
-                await page.goto(url)
-                await page.waitForSelector('div.prl0-sm h1.headline-2')
-                content = await page.content()
-            except Exception as e:
-                logging.error(e)
-        await page.close()
-        await browser.close()
+        options = webdriver.ChromeOptions()
+        options.add_argument("headless")
+        options.add_argument("--no-sandbox")
+        try:
+            browser = webdriver.Chrome(
+                ChromeDriverManager().install(), options=options)
+            browser.get(url)
+            content = browser.page_source
+        except Exception as e:
+            logging.error(e)
+        browser.close()
         try:
             return Nike.eP.extract(content)
         except Exception as e:

@@ -31,7 +31,6 @@ from bestbuy import Bestbuy
 from us_pandora import UsPandora
 from fentybeauty import Fentybeauty
 from belk import Belk
-import asyncio
 import re
 import logging
 
@@ -63,7 +62,7 @@ REQUEST_WEB = {
     'www.belk.com': Belk.getInstance()
 }
 
-PYPPETEER_WEB = {
+SELENIUM_WEB = {
     'www.jomashop.com': Jomashop.getInstance(),
     'www.nike.com': Nike.getInstance(),
     'www.target.com': Target.getInstance(),
@@ -82,10 +81,9 @@ def scrap():
     if parse_obj.netloc in REQUEST_WEB:
         web = REQUEST_WEB.get(parse_obj.netloc, Base)
         response = web.product(url)
-    if parse_obj.netloc in PYPPETEER_WEB:
-        web = PYPPETEER_WEB.get(parse_obj.netloc, Base)
-        asyncio.set_event_loop(asyncio.new_event_loop())
-        response = asyncio.get_event_loop().run_until_complete(web.product(url))
+    if parse_obj.netloc in SELENIUM_WEB:
+        web = SELENIUM_WEB.get(parse_obj.netloc, Base)
+        response = web.product(url)
     try:
         response.update({
             'price': float(re.sub('[^.0-9]', '', response["price"]))

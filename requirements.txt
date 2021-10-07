@@ -1,6 +1,7 @@
 selectorlib
 requests
-pyppeteer
 flask
 bs4
 python-dotenv
+webdriver_manager
+selenium
