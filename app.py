@@ -1,7 +1,7 @@
 import os
 
 from flask import Flask
-from main import scraper
+from route import scraper
 from logging import config
 
 log_config = {
