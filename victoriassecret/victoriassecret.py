@@ -1,7 +1,6 @@
 from selectorlib import Extractor
-from base import RESP_DEFAULT
+from base import RESP_DEFAULT, ChromePath
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
 from urllib.parse import urljoin
 import logging
 import os
@@ -48,8 +47,7 @@ class Victoriassecret():
         options.add_argument("headless")
         options.add_argument("--no-sandbox")
         try:
-            browser = webdriver.Chrome(
-                ChromeDriverManager().install(), options=options)
+            browser = webdriver.Chrome(ChromePath, options=options)
             browser.get(url)
             content = browser.page_source
         except Exception as e:

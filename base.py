@@ -1,5 +1,6 @@
 import requests
 import logging
+from webdriver_manager.chrome import ChromeDriverManager
 
 RESP_DEFAULT = {
     'name': None,
@@ -12,6 +13,7 @@ RESP_DEFAULT = {
 }
 
 VIEW_DEFAULT = dict(width=1600, height=1200)
+ChromePath = ChromeDriverManager().install()
 
 
 class Base():
