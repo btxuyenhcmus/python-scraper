@@ -1,0 +1,17 @@
+name:
+  css: "div.product-secondary-section > div.row:nth-of-type(2)"
+  xpath: null
+  type: Text
+price:
+  css: "div.price span.formatted_sale_price"
+  xpath: null
+  type: Text
+image:
+  css: "div.primary-image.active img.d-block"
+  xpath: null
+  type: Attribute
+  attribute: src
+product_description:
+  css: div.value
+  xpath: null
+  type: Text

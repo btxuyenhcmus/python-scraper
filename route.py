@@ -32,6 +32,7 @@ from us_pandora import UsPandora
 from fentybeauty import Fentybeauty
 from belk import Belk
 from hm import Hm
+from saksoff5th import Saksoff5th
 import re
 import logging
 
@@ -62,7 +63,8 @@ REQUEST_WEB = {
     'fentybeauty.com': Fentybeauty.getInstance(),
     'www.belk.com': Belk.getInstance(),
     'www.hm.com': Hm.getInstance(),
-    'www2.hm.com': Hm.getInstance()
+    'www2.hm.com': Hm.getInstance(),
+    'www.saksoff5th.com': Saksoff5th.getInstance()
 }
 
 SELENIUM_WEB = {
