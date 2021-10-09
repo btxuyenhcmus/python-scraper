@@ -31,6 +31,7 @@ from bestbuy import Bestbuy
 from us_pandora import UsPandora
 from fentybeauty import Fentybeauty
 from belk import Belk
+from hm import Hm
 import re
 import logging
 
@@ -59,7 +60,9 @@ REQUEST_WEB = {
     'www.bestbuy.com': Bestbuy.getInstance(),
     'us.pandora.net': UsPandora.getInstance(),
     'fentybeauty.com': Fentybeauty.getInstance(),
-    'www.belk.com': Belk.getInstance()
+    'www.belk.com': Belk.getInstance(),
+    'www.hm.com': Hm.getInstance(),
+    'www2.hm.com': Hm.getInstance()
 }
 
 SELENIUM_WEB = {
