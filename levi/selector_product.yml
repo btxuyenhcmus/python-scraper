@@ -1,0 +1,33 @@
+name:
+  css: "div.buybox h1.product-title"
+  xpath: null
+  type: Text
+price:
+  css: span.price.softPrice
+  xpath: null
+  type: Text
+price_2:
+  css: span.price
+  xpath: null
+  type: Text
+image:
+  css: "div.lsco-col-lg-14 img.processed-image"
+  xpath: null
+  type: Attribute
+  attribute: src
+product_description:
+  css: "div.pdp-spec-description div"
+  xpath: null
+  type: Text
+short_description:
+  css: div.promo-badge
+  xpath: null
+  type: Text
+number_of_reviews:
+  css: "div.reviews-section span.overall-rating-text"
+  xpath: null
+  type: Text
+rating:
+  css: "div.review-summary-section span.overall-rating-text"
+  xpath: null
+  type: Text

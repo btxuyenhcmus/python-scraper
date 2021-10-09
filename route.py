@@ -2,6 +2,7 @@ from flask import Blueprint, json
 from flask import request, jsonify
 from urllib.parse import urlparse
 from base import Base
+from levi.levi import Levi
 from walmart import Walmart
 from adidas import Adidas
 from amazon import Amazon
@@ -64,7 +65,8 @@ REQUEST_WEB = {
     'www.belk.com': Belk.getInstance(),
     'www.hm.com': Hm.getInstance(),
     'www2.hm.com': Hm.getInstance(),
-    'www.saksoff5th.com': Saksoff5th.getInstance()
+    'www.saksoff5th.com': Saksoff5th.getInstance(),
+    'www.levi.com': Levi.getInstance()
 }
 
 SELENIUM_WEB = {
