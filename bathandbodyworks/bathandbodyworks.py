@@ -28,7 +28,7 @@ class Bathandbodyworks(Base):
         try:
             resp = Bathandbodyworks.eP.extract(super().product(url))
             resp.update({
-                'price': resp["saled"] and resp["saled"] or resp["notsaled"]
+                'price': resp["saled"] or resp["notsaled"]
             })
             return resp
         except Exception as e:

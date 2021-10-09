@@ -28,7 +28,7 @@ class Bestbuy(Base):
         try:
             resp = Bestbuy.eP.extract(super().product(url))
             resp.update({
-                'price': resp["price_1"] and resp["price_1"] or resp["price_2"]
+                'price': resp["price_1"] or resp["price_2"]
             })
             return resp
         except Exception as e:
