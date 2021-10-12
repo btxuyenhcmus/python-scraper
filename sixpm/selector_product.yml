@@ -1,0 +1,21 @@
+name:
+  css: "h1.Rz-z > div"
+  xpath: null
+  type: Text
+price:
+  css: "div.Ua-z span.Ty-z > span"
+  xpath: null
+  type: Text
+image:
+  css: img.SF-z
+  xpath: null
+  type: Attribute
+  attribute: src
+product_description:
+  css: div.FI-z
+  xpath: null
+  type: Text
+short_description:
+  css: "div.Ua-z span.Xy-z span"
+  xpath: null
+  type: Text
