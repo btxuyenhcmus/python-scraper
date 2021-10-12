@@ -1,0 +1,12 @@
+name:
+  css: "div.product__container h2.product__title"
+  xpath: null
+  type: Text
+price:
+  css: "button.atc-btn-soldout span.type--cta"
+  xpath: null
+  type: Text
+number_of_reviews:
+  css: span.font-color-gray
+  xpath: null
+  type: Text
