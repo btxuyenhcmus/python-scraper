@@ -1,0 +1,17 @@
+name:
+  css: h2.product-title
+  xpath: null
+  type: Text
+price:
+  css: "span.price-sale > span.value"
+  xpath: null
+  type: Text
+image:
+  css: img.js-product-main-image-0
+  xpath: null
+  type: Attribute
+  attribute: src
+rating:
+  css: span.bv-secondary-rating-summary-rating
+  xpath: null
+  type: Text
