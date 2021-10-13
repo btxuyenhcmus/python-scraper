@@ -42,6 +42,7 @@ from ssense import Ssense
 from carters import Carters
 from urbanoutfitters import Urbanoutfitters
 from myprotein import Myprotein
+from guess import Guess
 import re
 import logging
 
@@ -92,7 +93,8 @@ SELENIUM_WEB = {
     'us.puma.com': UsPuma.getInstance(),
     'www.walgreens.com': Walgreens.getInstance(),
     'www.kiehls.com': Kiehls.getInstance(),
-    'www.victoriassecret.com': Victoriassecret.getInstance()
+    'www.victoriassecret.com': Victoriassecret.getInstance(),
+    'www.guess.com': Guess.getInstance()
 }
 
 

@@ -1,0 +1,16 @@
+name:
+  css: h1.product-name
+  xpath: null
+  type: Text
+price:
+  css: span.value
+  xpath: null
+  type: Text
+product_description:
+  css: "div.description div.js-content"
+  xpath: null
+  type: Text
+short_description:
+  css: div.color
+  xpath: null
+  type: Text
