@@ -36,6 +36,7 @@ from hm import Hm
 from saksoff5th import Saksoff5th
 from patmcgrath import Patmcgrath
 from sixpm import SixPm
+from gap import Gap
 import re
 import logging
 
@@ -70,7 +71,8 @@ REQUEST_WEB = {
     'www.saksoff5th.com': Saksoff5th.getInstance(),
     'www.levi.com': Levi.getInstance(),
     'www.patmcgrath.com': Patmcgrath.getInstance(),
-    'www.6pm.com': SixPm.getInstance()
+    'www.6pm.com': SixPm.getInstance(),
+    'www.gap.com': Gap.getInstance()
 }
 
 SELENIUM_WEB = {
