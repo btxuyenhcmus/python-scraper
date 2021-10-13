@@ -1,0 +1,25 @@
+name:
+  css: h1.c-pwa-product-meta-heading
+  xpath: null
+  type: Text
+price:
+  css: span.c-pwa-product-price__current
+  xpath: null
+  type: Text
+image:
+  css: "div.c-pwa-slider__item-outer:nth-of-type(1) div.c-pwa-image-viewer__img-outer img.o-pwa-image__img"
+  xpath: null
+  type: Attribute
+  attribute: src
+rating:
+  css: div.c-pwa-reviews-snippet__rating-count
+  xpath: null
+  type: Text
+number_of_reviews:
+  css: a.c-pwa-reviews-snippet__reviews-link
+  xpath: null
+  type: Text
+product_description:
+  css: "div.s-pwa-cms div.o-pwa-content-group"
+  xpath: null
+  type: Text

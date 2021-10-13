@@ -40,6 +40,7 @@ from gap import Gap
 from oldnavy_gap import OldnavyGap
 from ssense import Ssense
 from carters import Carters
+from urbanoutfitters import Urbanoutfitters
 import re
 import logging
 
@@ -78,7 +79,8 @@ REQUEST_WEB = {
     'www.gap.com': Gap.getInstance(),
     'oldnavy.gap.com': OldnavyGap.getInstance(),
     'www.ssense.com': Ssense.getInstance(),
-    'www.carters.com': Carters.getInstance()
+    'www.carters.com': Carters.getInstance(),
+    'www.urbanoutfitters.com': Urbanoutfitters.getInstance()
 }
 
 SELENIUM_WEB = {
@@ -88,7 +90,7 @@ SELENIUM_WEB = {
     'us.puma.com': UsPuma.getInstance(),
     'www.walgreens.com': Walgreens.getInstance(),
     'www.kiehls.com': Kiehls.getInstance(),
-    'www.victoriassecret.com': Victoriassecret.getInstance(),
+    'www.victoriassecret.com': Victoriassecret.getInstance()
 }
 
 
