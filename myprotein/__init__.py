@@ -1,0 +1,1 @@
+from .myprotein import Myprotein

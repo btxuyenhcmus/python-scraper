@@ -1,0 +1,21 @@
+name:
+  css: "div.athenaProductPage_productName div.productName"
+  xpath: null
+  type: Text
+price:
+  css: "div.athenaProductPage_productPrice p.productPrice_price"
+  xpath: null
+  type: Text
+image:
+  css: img.athenaProductImageCarousel_image
+  xpath: null
+  type: Attribute
+  attribute: src
+short_description:
+  css: span.papBanner_text
+  xpath: null
+  type: Text
+product_description:
+  css: "div.athenaProductPage_productDescriptionFull div.productDescription_contentPropertyListItem.productDescription_contentPropertyListItem_synopsis div.productDescription_synopsisContent div"
+  xpath: null
+  type: Text

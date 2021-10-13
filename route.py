@@ -41,6 +41,7 @@ from oldnavy_gap import OldnavyGap
 from ssense import Ssense
 from carters import Carters
 from urbanoutfitters import Urbanoutfitters
+from myprotein import Myprotein
 import re
 import logging
 
@@ -80,7 +81,8 @@ REQUEST_WEB = {
     'oldnavy.gap.com': OldnavyGap.getInstance(),
     'www.ssense.com': Ssense.getInstance(),
     'www.carters.com': Carters.getInstance(),
-    'www.urbanoutfitters.com': Urbanoutfitters.getInstance()
+    'www.urbanoutfitters.com': Urbanoutfitters.getInstance(),
+    'us.myprotein.com': Myprotein.getInstance()
 }
 
 SELENIUM_WEB = {
