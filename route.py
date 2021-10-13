@@ -38,6 +38,7 @@ from patmcgrath import Patmcgrath
 from sixpm import SixPm
 from gap import Gap
 from oldnavy_gap import OldnavyGap
+from ssense import Ssense
 import re
 import logging
 
@@ -74,7 +75,8 @@ REQUEST_WEB = {
     'www.patmcgrath.com': Patmcgrath.getInstance(),
     'www.6pm.com': SixPm.getInstance(),
     'www.gap.com': Gap.getInstance(),
-    'oldnavy.gap.com': OldnavyGap.getInstance()
+    'oldnavy.gap.com': OldnavyGap.getInstance(),
+    'www.ssense.com': Ssense.getInstance()
 }
 
 SELENIUM_WEB = {

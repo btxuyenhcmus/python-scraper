@@ -1,0 +1,8 @@
+name:
+  css: "div.pdp-scroll__column-content--full-wdith div.s-row.pdp-product-title div.s-column"
+  xpath: null
+  type: Text
+price:
+  css: h3.pdp-product-price__price
+  xpath: null
+  type: Text
