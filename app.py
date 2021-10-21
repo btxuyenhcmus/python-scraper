@@ -1,6 +1,7 @@
 import os
 
 from flask import Flask
+from flask_cors import CORS
 from route import scraper
 from logging import config
 
@@ -31,7 +32,8 @@ config.dictConfig(log_config)
 def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
-    app.register_blueprint(scraper, url_prefix='/scraper')
+    CORS(app)
+    app.register_blueprint(scraper)
     app.config.from_mapping(
         SECRET_KEY='dev',
         DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),

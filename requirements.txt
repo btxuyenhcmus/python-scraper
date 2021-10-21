@@ -1,6 +1,7 @@
 selectorlib
 requests
 flask
+flask-cors
 bs4
 python-dotenv
 webdriver_manager

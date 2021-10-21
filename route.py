@@ -98,7 +98,7 @@ SELENIUM_WEB = {
 }
 
 
-@scraper.route('/', methods=['POST'])
+@scraper.route('/scraper', methods=['POST'])
 def scrap():
     url = json.loads(request.data)["link"]
     parse_obj = urlparse(url)
@@ -115,4 +115,4 @@ def scrap():
         })
     except Exception as e:
         logging.error(e)
-    return jsonify(response)
+    return jsonify({'data': response})
