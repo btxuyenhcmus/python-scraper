@@ -115,4 +115,4 @@ def scrap():
         })
     except Exception as e:
         logging.error(e)
-    return jsonify({'data': response})
+    return jsonify(response)
