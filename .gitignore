@@ -1,5 +1,6 @@
 .venv
 etc/certbot/
+instance/
 __pycache__/
 *.pyc
 .env
