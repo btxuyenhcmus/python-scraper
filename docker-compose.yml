@@ -10,3 +10,35 @@ services:
     restart: always
     volumes:
       - ./:/python-scraper
+    network:
+      - scraper-net
+  webserver:
+    container_name: webserver
+    image: nginx:stable-alpine
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./etc/nginx/conf.d:/etc/nginx/conf.d
+      - ./etc/certbot/conf:/etc/nginx/ssl
+      - ./etc/certbot/data:/var/www/html
+    networks:
+      - scraper-net
+    depends_on:
+      - python-scraper
+
+  certbot:
+    container_name: certbot
+    image: certbot/certbot:latest
+    # command: certonly --webroot --webroot-path=/var/www/html --email admin@buyngon.com --agree-tos --no-eff-email --staging -d scraper.buyngon.com
+    volumes:
+      - ./etc/certbot/conf:/etc/letsencrypt
+      - ./etc/certbot/logs:/var/log/letsencrypt
+      - ./etc/certbot/data:/var/www/html
+    depends_on:
+      - webserver
+
+networks:
+  scraper-net:
+    driver: bridge
