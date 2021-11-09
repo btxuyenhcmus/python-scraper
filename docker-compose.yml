@@ -10,7 +10,7 @@ services:
     restart: always
     volumes:
       - ./:/python-scraper
-    network:
+    networks:
       - scraper-net
   webserver:
     container_name: webserver
