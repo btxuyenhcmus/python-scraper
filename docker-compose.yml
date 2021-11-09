@@ -10,6 +10,18 @@ services:
       - ./:/python-scraper
     networks:
       - scraper-net
+      - cache-net
+
+  redis:
+    container_name: redis
+    image: redis:alpine
+    restart: always
+    volumes:
+      - ./etc/redis/conf/redis.conf:/usr/local/etc/redis/redis.conf
+    command: redis-server /usr/local/etc/redis/redis.conf
+    networks:
+      - cache-net
+
   webserver:
     container_name: webserver
     image: nginx:stable-alpine
@@ -39,4 +51,6 @@ services:
 
 networks:
   scraper-net:
+    driver: bridge
+  cache-net:
     driver: bridge

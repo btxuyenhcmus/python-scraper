@@ -2,6 +2,7 @@ from flask import Blueprint, json
 from flask import request, jsonify
 from urllib.parse import urlparse
 from base import Base
+from flask_redis import FlaskRedis
 from levi.levi import Levi
 from walmart import Walmart
 from adidas import Adidas
@@ -48,6 +49,7 @@ import logging
 
 
 scraper = Blueprint('scraper', __name__)
+redis_client = FlaskRedis()
 
 REQUEST_WEB = {
     'www.walmart.com': Walmart.getInstance(),
@@ -101,6 +103,9 @@ SELENIUM_WEB = {
 @scraper.route('/scraper', methods=['POST'])
 def scrap():
     url = json.loads(request.data)["link"]
+    cache = redis_client.get(url)
+    if cache:
+        return jsonify(json.loads(cache))
     parse_obj = urlparse(url)
     web, response = Base, {}
     if parse_obj.netloc in REQUEST_WEB:
@@ -113,6 +118,7 @@ def scrap():
         response.update({
             'price': float(re.sub('[^.0-9]', '', response["price"]))
         })
+        redis_client.set(url, json.dumps(response))
     except Exception as e:
         logging.error(e)
     return jsonify(response)

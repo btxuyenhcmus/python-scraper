@@ -2,7 +2,7 @@ import os
 
 from flask import Flask
 from flask_cors import CORS
-from route import scraper
+from route import scraper, redis_client
 from logging import config
 
 log_config = {
@@ -51,6 +51,9 @@ def create_app(test_config=None):
         os.makedirs(app.instance_path)
     except OSError:
         pass
+
+    app.config["REDIS_URL"] = os.getenv('REDIS_URL')
+    redis_client.init_app(app)
 
     # a simple page that says hello
     @app.route('/hello')
