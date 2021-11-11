@@ -19,3 +19,7 @@ product_description:
   css: div.copyline-tab
   xpath: null
   type: Text
+price_standard:
+  css: "span.standardprice span.visually-hidden"
+  xpath: null
+  type: Text

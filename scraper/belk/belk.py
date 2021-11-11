@@ -45,7 +45,11 @@ class Belk(Base):
                     print("Page %s must have been blocked by Website as the status code was %d" % (
                         url, r.status_code))
                 return {}
-            return Belk.eP.extract(r.text)
+            resp = Belk.eP.extract(r.text)
+            resp.update({
+                'price': resp["price"] or resp["price_standard"]
+            })
+            return resp
         except Exception as e:
             logging.error(e)
             return RESP_DEFAULT
