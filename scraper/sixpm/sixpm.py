@@ -4,7 +4,7 @@ from base import Base, RESP_DEFAULT
 import os
 
 pathfile = os.path.dirname(os.path.realpath(__file__))
-DNS_WEB = "https://www.SixPm.com"
+DNS_WEB = "https://www.6pm.com"
 
 
 class SixPm(Base):
