@@ -1,0 +1,29 @@
+name:
+  css: "h1.subtitle2 span.ng-star-inserted"
+  xpath: null
+  type: Text
+price:
+  css: "div.product-price span.ng-star-inserted"
+  xpath: null
+  type: Text
+number_of_reviews:
+  css: div.bv_numReviews_text
+  xpath: null
+  type: Text
+rating:
+  css: div.bv_avgRating_component_container
+  xpath: null
+  type: Text
+image:
+  css: "div.image:nth-of-type(1) img"
+  xpath: null
+  type: Attribute
+  attribute: src
+product_description:
+  css: div.description
+  xpath: null
+  type: Text
+short_description:
+  css: "div#selected-color.component-padding"
+  xpath: null
+  type: Text

@@ -44,6 +44,7 @@ from carters import Carters
 from urbanoutfitters import Urbanoutfitters
 from myprotein import Myprotein
 from guess import Guess
+from dsw import Dsw
 import re
 import logging
 
@@ -85,7 +86,8 @@ REQUEST_WEB = {
     'www.ssense.com': Ssense.getInstance(),
     'www.carters.com': Carters.getInstance(),
     'www.urbanoutfitters.com': Urbanoutfitters.getInstance(),
-    'us.myprotein.com': Myprotein.getInstance()
+    'us.myprotein.com': Myprotein.getInstance(),
+    'www.dsw.com': Dsw.getInstance()
 }
 
 SELENIUM_WEB = {
