@@ -86,8 +86,7 @@ REQUEST_WEB = {
     'www.ssense.com': Ssense.getInstance(),
     'www.carters.com': Carters.getInstance(),
     'www.urbanoutfitters.com': Urbanoutfitters.getInstance(),
-    'us.myprotein.com': Myprotein.getInstance(),
-    'www.dsw.com': Dsw.getInstance()
+    'us.myprotein.com': Myprotein.getInstance()
 }
 
 SELENIUM_WEB = {
@@ -98,7 +97,8 @@ SELENIUM_WEB = {
     'www.walgreens.com': Walgreens.getInstance(),
     'www.kiehls.com': Kiehls.getInstance(),
     'www.victoriassecret.com': Victoriassecret.getInstance(),
-    'www.guess.com': Guess.getInstance()
+    'www.guess.com': Guess.getInstance(),
+    'www.dsw.com': Dsw.getInstance()
 }
 
 
