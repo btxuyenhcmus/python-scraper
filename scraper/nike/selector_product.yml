@@ -1,9 +1,9 @@
 name:
-  css: "div.prl0-sm h1.headline-2"
+  css: div.pr2-sm
   xpath: null
   type: Text
 price:
-  css: "div.prl0-sm div.product-price__wrapper"
+  css: "div.headline-5 div.product-price"
   xpath: null
   type: Text
 short_description:

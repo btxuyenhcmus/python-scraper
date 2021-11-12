@@ -45,6 +45,8 @@ class Nike():
         options = webdriver.ChromeOptions()
         options.add_argument("headless")
         options.add_argument("--no-sandbox")
+        options.add_argument(
+            "--proxy-server={}".format(os.getenv('HTTP_PROXY')))
         try:
             browser = webdriver.Chrome(ChromePath, options=options)
             browser.get(url)
