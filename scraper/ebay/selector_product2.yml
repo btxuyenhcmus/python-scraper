@@ -1,0 +1,13 @@
+name:
+  css: h1.product-title
+  xpath: null
+  type: Text
+price:
+  css: div.display-price
+  xpath: null
+  type: Text
+image:
+  css: img.vi-image-gallery__image
+  xpath: null
+  type: Attribute
+  attribute: src
