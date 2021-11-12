@@ -69,7 +69,6 @@ REQUEST_WEB = {
     'www.bathandbodyworks.com': Bathandbodyworks.getInstance(),
     'www.guessfactory.com': Guessfactory.getInstance(),
     'www.calvinklein.us': Calvinklein.getInstance(),
-    'www.macys.com': Macys.getInstance(),
     'www.overstock.com': Overstock.getInstance(),
     'www.bestbuy.com': Bestbuy.getInstance(),
     'us.pandora.net': UsPandora.getInstance(),
@@ -98,7 +97,8 @@ SELENIUM_WEB = {
     'www.kiehls.com': Kiehls.getInstance(),
     'www.victoriassecret.com': Victoriassecret.getInstance(),
     'www.guess.com': Guess.getInstance(),
-    'www.dsw.com': Dsw.getInstance()
+    'www.dsw.com': Dsw.getInstance(),
+    'www.macys.com': Macys.getInstance()
 }
 
 

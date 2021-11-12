@@ -33,7 +33,7 @@ class Dsw():
         return {
             'dnt': '1',
             'upgrade-insecure-requests': '1',
-            'user-agent': f'user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.79 Safari/537.36',
+            'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36',
             'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
             'sec-fetch-site': 'same-origin',
             'sec-fetch-mode': 'navigate',
@@ -43,12 +43,16 @@ class Dsw():
             'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
         }
 
+    @property
+    def UserAgent(self):
+        return f'user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.79 Safari/537.36'
+
     def product(self, url) -> dict:
         logging.info("Downloading {}".format(url))
         options = webdriver.ChromeOptions()
         options.add_argument("headless")
         options.add_argument("--no-sandbox")
-        options.add_argument(self.headers["user-agent"])
+        options.add_argument(self.UserAgent)
         try:
             browser = webdriver.Chrome(ChromePath, options=options)
             browser.get(url)
