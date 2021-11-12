@@ -1,6 +1,9 @@
 from selectorlib import Extractor
 from base import RESP_DEFAULT, ChromePath
 from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
 from urllib.parse import urljoin
 import logging
 import os
@@ -49,6 +52,8 @@ class Victoriassecret():
         try:
             browser = webdriver.Chrome(ChromePath, options=options)
             browser.get(url)
+            WebDriverWait(browser, 10).until(EC.presence_of_all_elements_located(
+                (By.CSS_SELECTOR, "div.fabric-purchasable-product-component-simplified-price-and-item-number-wrapper div.fabric-purchasable-product-component-simplified-price")))
             content = browser.page_source
         except Exception as e:
             logging.error(e)
@@ -56,7 +61,8 @@ class Victoriassecret():
         try:
             resp = Victoriassecret.eP.extract(content)
             resp.update({
-                'image': urljoin(Victoriassecret.__instance.dns, resp["image"])
+                'image': urljoin(Victoriassecret.__instance.dns, resp["image"]),
+                'price': resp["price_sale"] or resp["price"]
             })
             return resp
         except Exception as e:

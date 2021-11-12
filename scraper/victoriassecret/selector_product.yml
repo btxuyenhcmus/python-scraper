@@ -6,6 +6,10 @@ price:
   css: "div.fabric-purchasable-product-component-simplified-price-and-item-number-wrapper div.fabric-purchasable-product-component-simplified-price"
   xpath: null
   type: Text
+price_sale:
+  css: "div.fabric-purchasable-product-component-simplified-price-and-item-number-wrapper ins.fabric-purchasable-product-component-simplified-price-sale-price"
+  xpath: null
+  type: Text
 number_of_reviews:
   css: "button.fabric-ratings-and-reviews-component-overview-rating-count span.ff-primary"
   xpath: null
