@@ -28,7 +28,11 @@ class Amazon(Base):
 
     def product(self, url) -> dict:
         try:
-            return Amazon.eP.extract(super().product(url))
+            resp = Amazon.eP.extract(super().product(url))
+            resp.update({
+                'price': resp["price"] or resp["price_deal"]
+            })
+            return resp
         except Exception as e:
             logging.error(e)
             return RESP_DEFAULT
