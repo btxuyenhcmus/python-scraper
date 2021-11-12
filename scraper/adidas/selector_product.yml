@@ -1,9 +1,5 @@
 name:
-  css: "div.sidebar___2C-EP h1.gl-heading span"
-  xpath: null
-  type: Text
-price:
-  css: "div.sidebar___2C-EP div.gl-price-item"
+  css: "h1.gl-heading span"
   xpath: null
   type: Text
 image:
@@ -25,5 +21,13 @@ number_of_reviews:
   type: Text
 rating:
   css: div.out-of-5___2H_qH
+  xpath: null
+  type: Text
+price_sale:
+  css: "div.price-wrapper___3PitS div.gl-price-item.gl-price-item--sale"
+  xpath: null
+  type: Text
+price:
+  css: "div.price-wrapper___3PitS div.gl-price-item"
   xpath: null
   type: Text
