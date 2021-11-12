@@ -85,10 +85,7 @@ REQUEST_WEB = {
     'www.ssense.com': Ssense.getInstance(),
     'www.carters.com': Carters.getInstance(),
     'www.urbanoutfitters.com': Urbanoutfitters.getInstance(),
-    'us.myprotein.com': Myprotein.getInstance()
-}
-
-SELENIUM_WEB = {
+    'us.myprotein.com': Myprotein.getInstance(),
     'www.jomashop.com': Jomashop.getInstance(),
     'www.nike.com': Nike.getInstance(),
     'www.target.com': Target.getInstance(),
@@ -110,12 +107,8 @@ def scrap():
         return jsonify(json.loads(cache))
     parse_obj = urlparse(url)
     web, response = Base, {}
-    if parse_obj.netloc in REQUEST_WEB:
-        web = REQUEST_WEB.get(parse_obj.netloc, Base)
-        response = web.product(url)
-    if parse_obj.netloc in SELENIUM_WEB:
-        web = SELENIUM_WEB.get(parse_obj.netloc, Base)
-        response = web.product(url)
+    web = REQUEST_WEB.get(parse_obj.netloc, Base)
+    response = web.product(url)
     try:
         response.update({
             'price': float(re.sub('[^.0-9]', '', response["price"]))
