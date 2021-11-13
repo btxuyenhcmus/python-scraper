@@ -1,0 +1,13 @@
+name:
+  css: "h1.gl-heading span"
+  xpath: null
+  type: Text
+price:
+  css: "div.price-wrapper___3PitS div.gl-price-item"
+  xpath: null
+  type: Text
+image:
+  css: "div.pinch-zoom-wrapper___3fnOh div.content___26aLt img"
+  xpath: null
+  type: Attribute
+  attribute: src
