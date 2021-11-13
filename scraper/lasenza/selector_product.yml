@@ -1,0 +1,13 @@
+name:
+  css: h1.product-name
+  xpath: null
+  type: Text
+price:
+  css: "div.product-content span.price-sales span:nth-of-type(2)"
+  xpath: null
+  type: Text
+image:
+  css: "div.product-primary-image.image-index-0 img.zoomImg"
+  xpath: null
+  type: Attribute
+  attribute: src

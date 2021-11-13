@@ -47,6 +47,7 @@ from guess import Guess
 from dsw import Dsw
 from michaelkors import Michaelkors
 from swarovski import Swarovski
+from lasenza import Lasenza
 import re
 import logging
 
@@ -99,7 +100,8 @@ REQUEST_WEB = {
     'www.dsw.com': Dsw.getInstance(),
     'www.macys.com': Macys.getInstance(),
     'www.michaelkors.com': Michaelkors.getInstance(),
-    'www.swarovski.com': Swarovski.getInstance()
+    'www.swarovski.com': Swarovski.getInstance(),
+    'www.lasenza.com': Lasenza.getInstance()
 }
 
 

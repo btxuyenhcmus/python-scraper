@@ -5,25 +5,25 @@ import logging
 import os
 
 pathfile = os.path.dirname(os.path.realpath(__file__))
-DNS_WEB = "https://www.swarovski.com"
+DNS_WEB = "https://www.lasenza.com"
 
 
-class Swarovski():
+class Lasenza():
     eP = Extractor.from_yaml_file("{}/selector_product.yml".format(pathfile))
     __instance = None
 
     def __init__(self, dns=DNS_WEB) -> None:
-        if Swarovski.__instance != None:
+        if Lasenza.__instance != None:
             raise Exception("This is singleton class!!")
         self.dns = dns
-        Swarovski.__instance = self
+        Lasenza.__instance = self
 
     @staticmethod
     def getInstance() -> object:
         """This is static method be called by class"""
-        if Swarovski.__instance == None:
-            Swarovski()
-        return Swarovski.__instance
+        if Lasenza.__instance == None:
+            Lasenza()
+        return Lasenza.__instance
 
     @property
     def headers(self) -> dict:
@@ -50,6 +50,8 @@ class Swarovski():
         options.add_argument("headless")
         options.add_argument("--no-sandbox")
         options.add_argument(self.UserAgent)
+        options.add_argument(
+            "--proxy-server={}".format(os.getenv('HTTP_PROXY')))
         try:
             browser = webdriver.Chrome(ChromePath, options=options)
             browser.get(url)
@@ -58,10 +60,10 @@ class Swarovski():
             logging.error(e)
         browser.close()
         try:
-            return Swarovski.eP.extract(content)
+            return Lasenza.eP.extract(content)
         except Exception as e:
             logging.error(e)
         return RESP_DEFAULT
 
     def __str__(self) -> str:
-        return "Swarovski Model"
+        return "Lasenza Model"
