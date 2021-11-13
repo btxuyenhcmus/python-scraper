@@ -49,6 +49,7 @@ from michaelkors import Michaelkors
 from swarovski import Swarovski
 from lasenza import Lasenza
 from reebok import Reebok
+from furla import Furla
 import re
 import logging
 
@@ -103,7 +104,8 @@ REQUEST_WEB = {
     'www.michaelkors.com': Michaelkors.getInstance(),
     'www.swarovski.com': Swarovski.getInstance(),
     'www.lasenza.com': Lasenza.getInstance(),
-    'www.reebok.com': Reebok.getInstance()
+    'www.reebok.com': Reebok.getInstance(),
+    'www.furla.com': Furla.getInstance()
 }
 
 

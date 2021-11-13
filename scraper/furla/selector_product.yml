@@ -1,0 +1,17 @@
+name:
+  css: "div.product-number h2"
+  xpath: null
+  type: Text
+price_sale:
+  css: "div.product-detail__content span.price-sales"
+  xpath: null
+  type: Text
+image:
+  css: "div.product-primary-image div.carousel-cell:nth-of-type(1) img.primary-image"
+  xpath: null
+  type: Attribute
+  attribute: src
+price:
+  css: "div.product-detail__content span.price-standard"
+  xpath: null
+  type: Text
