@@ -1,0 +1,13 @@
+name:
+  css: h1
+  xpath: null
+  type: Text
+price:
+  css: div.swa-product-information__price
+  xpath: null
+  type: Text
+image:
+  css: "div.glide__slide.glide__slide--active a img.js-swa-product-carousel-image"
+  xpath: null
+  type: Attribute
+  attribute: src

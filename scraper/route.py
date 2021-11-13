@@ -46,6 +46,7 @@ from myprotein import Myprotein
 from guess import Guess
 from dsw import Dsw
 from michaelkors import Michaelkors
+from swarovski import Swarovski
 import re
 import logging
 
@@ -97,7 +98,8 @@ REQUEST_WEB = {
     'www.guess.com': Guess.getInstance(),
     'www.dsw.com': Dsw.getInstance(),
     'www.macys.com': Macys.getInstance(),
-    'www.michaelkors.com': Michaelkors.getInstance()
+    'www.michaelkors.com': Michaelkors.getInstance(),
+    'www.swarovski.com': Swarovski.getInstance()
 }
 
 
