@@ -1,3 +1,4 @@
+from urllib.parse import urljoin
 from selectorlib import Extractor
 from base import RESP_DEFAULT, ChromePath
 from selenium import webdriver
@@ -5,25 +6,25 @@ import logging
 import os
 
 pathfile = os.path.dirname(os.path.realpath(__file__))
-DNS_WEB = "https://www.macys.com"
+DNS_WEB = "https://www.michaelkors.com"
 
 
-class Macys():
+class Michaelkors():
     eP = Extractor.from_yaml_file("{}/selector_product.yml".format(pathfile))
     __instance = None
 
     def __init__(self, dns=DNS_WEB) -> None:
-        if Macys.__instance != None:
+        if Michaelkors.__instance != None:
             raise Exception("This is singleton class!!")
         self.dns = dns
-        Macys.__instance = self
+        Michaelkors.__instance = self
 
     @staticmethod
     def getInstance() -> object:
         """This is static method be called by class"""
-        if Macys.__instance == None:
-            Macys()
-        return Macys.__instance
+        if Michaelkors.__instance == None:
+            Michaelkors()
+        return Michaelkors.__instance
 
     @property
     def headers(self) -> dict:
@@ -60,10 +61,14 @@ class Macys():
             logging.error(e)
         browser.close()
         try:
-            return Macys.eP.extract(content)
+            resp = Michaelkors.eP.extract(content)
+            resp.update({
+                'image': urljoin('https:', resp["image"])
+            })
+            return resp
         except Exception as e:
             logging.error(e)
         return RESP_DEFAULT
 
     def __str__(self) -> str:
-        return "Macys Model"
+        return "Michaelkors Model"

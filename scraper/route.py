@@ -45,6 +45,7 @@ from urbanoutfitters import Urbanoutfitters
 from myprotein import Myprotein
 from guess import Guess
 from dsw import Dsw
+from michaelkors import Michaelkors
 import re
 import logging
 
@@ -95,7 +96,8 @@ REQUEST_WEB = {
     'www.victoriassecret.com': Victoriassecret.getInstance(),
     'www.guess.com': Guess.getInstance(),
     'www.dsw.com': Dsw.getInstance(),
-    'www.macys.com': Macys.getInstance()
+    'www.macys.com': Macys.getInstance(),
+    'www.michaelkors.com': Michaelkors.getInstance()
 }
 
 
