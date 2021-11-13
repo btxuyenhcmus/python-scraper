@@ -116,12 +116,10 @@ def scrap():
     if cache:
         return jsonify(json.loads(cache))
     parse_obj = urlparse(url)
-    web, response = Base, {}
-    web = REQUEST_WEB.get(parse_obj.netloc, Base)
-    try:
-        response = web.product(url)
-    except Exception as e:
+    web = REQUEST_WEB.get(parse_obj.netloc)
+    if not web:
         return jsonify({})
+    response = web.product(url)
     try:
         response.update({
             'price': float(re.sub('[^.0-9]', '', response["price"]))
