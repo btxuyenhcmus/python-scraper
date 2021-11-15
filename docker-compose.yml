@@ -31,6 +31,7 @@ services:
       - 443:443
     volumes:
       - ./etc/nginx/conf.d:/etc/nginx/conf.d
+      - ./etc/nginx/snippets:/etc/nginx/snippets
       - ./etc/certbot/conf:/etc/nginx/ssl
       - ./etc/certbot/data:/var/www/html
     networks:
