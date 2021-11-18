@@ -1,0 +1,13 @@
+name:
+  css: h1.pdp-primary-information__product-name
+  xpath: null
+  type: Text
+price:
+  css: "div.pdp-primary-information__price div.pdp-primary-information__price span.product-price--sales"
+  xpath: null
+  type: Text
+image:
+  css: "div.pdp-images-gallery__gallery-item-container:nth-of-type(1) img.pdp-images-gallery__media"
+  xpath: null
+  type: Attribute
+  attribute: src
