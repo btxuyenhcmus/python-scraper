@@ -1,0 +1,8 @@
+name:
+  css: "div.col-lg-4 h1.product-name"
+  xpath: null
+  type: Text
+price:
+  css: "div.prices.prices-desktop span.value"
+  xpath: null
+  type: Text

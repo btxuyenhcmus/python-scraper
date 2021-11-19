@@ -1,0 +1,1 @@
+from .fossil import Fossil

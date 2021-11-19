@@ -51,6 +51,7 @@ from lasenza import Lasenza
 from reebok import Reebok
 from furla import Furla
 from converse import Converse
+from fossil import Fossil
 import re
 import logging
 
@@ -107,7 +108,8 @@ REQUEST_WEB = {
     'www.lasenza.com': Lasenza.getInstance(),
     'www.reebok.com': Reebok.getInstance(),
     'www.furla.com': Furla.getInstance(),
-    'www.converse.com': Converse.getInstance()
+    'www.converse.com': Converse.getInstance(),
+    'www.fossil.com': Fossil.getInstance()
 }
 
 
