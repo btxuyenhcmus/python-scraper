@@ -35,7 +35,7 @@ class Amazon(Base):
             return resp
         except Exception as e:
             logging.error(e)
-            return RESP_DEFAULT
+        return RESP_DEFAULT
 
     def search(self, keyword):
         print("Downloading {}".format(self.dns + "/s?k={}".format(keyword)))

@@ -9,7 +9,7 @@ DNS_WEB = "https://www.ebay.com"
 
 class Ebay(Base):
     eP = Extractor.from_yaml_file("{}/selector_product.yml".format(pathfile))
-    ep2 = Extractor.from_yaml_file("{}/selector_product2.yml".format(pathfile))
+    eP2 = Extractor.from_yaml_file("{}/selector_product2.yml".format(pathfile))
     __instance = None
 
     def __init__(self, dns=DNS_WEB) -> None:
@@ -30,10 +30,10 @@ class Ebay(Base):
             html = super().product(url)
             if "/itm" in url:
                 return Ebay.eP.extract(html)
-            return Ebay.ep2.extract(html)
+            return Ebay.eP2.extract(html)
         except Exception as e:
             logging.error(e)
-            return RESP_DEFAULT
+        return RESP_DEFAULT
 
     def __str__(self) -> str:
         return "Ebay Model"

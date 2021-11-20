@@ -1,8 +1,9 @@
 import logging
 from urllib.parse import urljoin
+from flask import json
 from selectorlib import Extractor
-from base import Base, RESP_DEFAULT, ChromePath
-from selenium import webdriver
+from bs4 import BeautifulSoup
+from base import Base, RESP_DEFAULT
 import os
 
 pathfile = os.path.dirname(os.path.realpath(__file__))
@@ -27,31 +28,24 @@ class Esteelauder(Base):
             Esteelauder()
         return Esteelauder.__instance
 
-    @property
-    def UserAgent(self):
-        return f'user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.79 Safari/537.36'
-
     def product(self, url) -> dict:
-        logging.info("Downloading {}".format(url))
-        options = webdriver.ChromeOptions()
-        options.add_argument("headless")
-        options.add_argument("--no-sandbox")
-        options.add_argument(self.UserAgent)
         try:
-            browser = webdriver.Chrome(ChromePath, options=options)
-            browser.get(url)
-            content = browser.page_source
-        except Exception as e:
-            logging.error(e)
-        browser.quit()
-        try:
+            html = super().product(url)
             if "/product" in url:
-                resp = Esteelauder.eP2.extract(content)
-                resp.update({
-                    'image': urljoin(self.dns, resp["image"])
-                })
+                soup = BeautifulSoup(html, 'lxml')
+                data = json.loads(
+                    str(soup.find('script', type='application/ld+json'))[35:-9])
+                resp = Esteelauder.eP2.extract(html)
+                try:
+                    resp.update({
+                        'name': data["name"],
+                        'image': data["image"],
+                        'price': data["offers"][0]["price"]
+                    })
+                except Exception as e:
+                    logging.error(e)
                 return resp
-            resp = Esteelauder.eP.extract(content)
+            resp = Esteelauder.eP.extract(html)
             resp.update({
                 'image': urljoin(self.dns, resp["image"])
             })

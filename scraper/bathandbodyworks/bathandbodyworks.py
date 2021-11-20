@@ -33,7 +33,7 @@ class Bathandbodyworks(Base):
             return resp
         except Exception as e:
             logging.error(e)
-            return RESP_DEFAULT
+        return RESP_DEFAULT
 
     def __str__(self) -> str:
         return "Bathandbodyworks Model"

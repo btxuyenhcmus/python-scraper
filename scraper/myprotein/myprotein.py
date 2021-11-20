@@ -29,7 +29,7 @@ class Myprotein(Base):
             return Myprotein.eP.extract(super().product(url))
         except Exception as e:
             logging.error(e)
-            return RESP_DEFAULT
+        return RESP_DEFAULT
 
     def __str__(self) -> str:
         return "Myprotein Model"

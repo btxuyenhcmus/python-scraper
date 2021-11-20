@@ -37,7 +37,7 @@ class Goat(Base):
             }
         except Exception as e:
             logging.error(e)
-            return RESP_DEFAULT
+        return RESP_DEFAULT
 
     def __str__(self) -> str:
         return "Goat Model"
