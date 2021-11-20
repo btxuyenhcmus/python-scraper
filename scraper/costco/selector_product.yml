@@ -1,0 +1,13 @@
+name:
+  css: h1
+  xpath: null
+  type: Text
+price:
+  css: span.value
+  xpath: null
+  type: Text
+image:
+  css: "img#RICHFXViewerContainer___richfx_id_0_initialImage.img-responsive"
+  xpath: null
+  type: Attribute
+  attribute: src

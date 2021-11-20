@@ -52,6 +52,7 @@ from reebok import Reebok
 from furla import Furla
 from converse import Converse
 from fossil import Fossil
+from costco import Costco
 import re
 import logging
 
@@ -109,7 +110,8 @@ REQUEST_WEB = {
     'www.reebok.com': Reebok.getInstance(),
     'www.furla.com': Furla.getInstance(),
     'www.converse.com': Converse.getInstance(),
-    'www.fossil.com': Fossil.getInstance()
+    'www.fossil.com': Fossil.getInstance(),
+    'www.costco.com': Costco.getInstance()
 }
 
 
