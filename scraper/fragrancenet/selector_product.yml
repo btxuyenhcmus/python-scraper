@@ -1,0 +1,13 @@
+name:
+  css: span.productTitle
+  xpath: null
+  type: Text
+price:
+  css: "div.pricingContain:nth-of-type(3) div.ourPrice p.price"
+  xpath: null
+  type: Text
+image:
+  css: "div.leftZone img.mainProductImage"
+  xpath: null
+  type: Attribute
+  attribute: src

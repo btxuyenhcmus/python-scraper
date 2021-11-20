@@ -55,6 +55,7 @@ from fossil import Fossil
 from costco import Costco
 from toofaced import Toofaced
 from esteelauder import Esteelauder
+from fragrancenet import Fragrancenet
 import re
 import logging
 
@@ -115,7 +116,8 @@ REQUEST_WEB = {
     'www.fossil.com': Fossil.getInstance(),
     'www.costco.com': Costco.getInstance(),
     'www.toofaced.com': Toofaced.getInstance(),
-    'www.esteelauder.com': Esteelauder.getInstance()
+    'www.esteelauder.com': Esteelauder.getInstance(),
+    'www.fragrancenet.com': Fragrancenet.getInstance()
 }
 
 
