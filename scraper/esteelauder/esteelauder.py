@@ -43,7 +43,7 @@ class Esteelauder(Base):
             content = browser.page_source
         except Exception as e:
             logging.error(e)
-        browser.close()
+        browser.quit()
         try:
             if "/product" in url:
                 resp = Esteelauder.eP2.extract(content)
