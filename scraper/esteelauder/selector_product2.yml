@@ -1,0 +1,13 @@
+name:
+  css: "div.elc-product-display-name-wrapper h4.Typography__Heading4-sc-1fbxrya-3"
+  xpath: null
+  type: Text
+price:
+  css: "div.elc-product-prices-wrapper div.elc-product-prices-wrapper h4.PriceFormatted__PriceTagStyled-wqp5df-0"
+  xpath: null
+  type: Text
+image:
+  css: "div.slick-slide.slick-active div.elc-image-slider-images-wrapper img.ProductImages__StyledProductImage-vm6pv5-1"
+  xpath: null
+  type: Attribute
+  attribute: src

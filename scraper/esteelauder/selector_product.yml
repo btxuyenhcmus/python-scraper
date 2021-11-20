@@ -1,0 +1,13 @@
+name:
+  css: h3.product-full__title
+  xpath: null
+  type: Text
+price:
+  css: "p strong"
+  xpath: null
+  type: Text
+image:
+  css: "div.product-full__image-main img"
+  xpath: null
+  type: Attribute
+  attribute: src
