@@ -54,7 +54,6 @@ from converse import Converse
 from fossil import Fossil
 from costco import Costco
 from toofaced import Toofaced
-from esteelauder import Esteelauder
 import re
 import logging
 
@@ -114,8 +113,7 @@ REQUEST_WEB = {
     'www.converse.com': Converse.getInstance(),
     'www.fossil.com': Fossil.getInstance(),
     'www.costco.com': Costco.getInstance(),
-    'www.toofaced.com': Toofaced.getInstance(),
-    'www.esteelauder.com': Esteelauder.getInstance()
+    'www.toofaced.com': Toofaced.getInstance()
 }
 
 
