@@ -53,6 +53,7 @@ from furla import Furla
 from converse import Converse
 from fossil import Fossil
 from costco import Costco
+from toofaced import Toofaced
 import re
 import logging
 
@@ -111,7 +112,8 @@ REQUEST_WEB = {
     'www.furla.com': Furla.getInstance(),
     'www.converse.com': Converse.getInstance(),
     'www.fossil.com': Fossil.getInstance(),
-    'www.costco.com': Costco.getInstance()
+    'www.costco.com': Costco.getInstance(),
+    'www.toofaced.com': Toofaced.getInstance()
 }
 
 

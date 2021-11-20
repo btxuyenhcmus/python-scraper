@@ -1,0 +1,13 @@
+name:
+  css: h1.product-full__name
+  xpath: null
+  type: Text
+price:
+  css: span.product__price--standard
+  xpath: null
+  type: Text
+image:
+  css: "div.product-full__carousel__slide.initial-current-slide img.js-product-image"
+  xpath: null
+  type: Attribute
+  attribute: src
