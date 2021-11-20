@@ -56,6 +56,7 @@ from costco import Costco
 from toofaced import Toofaced
 from esteelauder import Esteelauder
 from fragrancenet import Fragrancenet
+from clarksusa import Clarksusa
 import re
 import logging
 
@@ -117,7 +118,8 @@ REQUEST_WEB = {
     'www.costco.com': Costco.getInstance(),
     'www.toofaced.com': Toofaced.getInstance(),
     'www.esteelauder.com': Esteelauder.getInstance(),
-    'www.fragrancenet.com': Fragrancenet.getInstance()
+    'www.fragrancenet.com': Fragrancenet.getInstance(),
+    'www.clarksusa.com': Clarksusa.getInstance()
 }
 
 

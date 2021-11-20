@@ -1,0 +1,21 @@
+name:
+  css: h1.product-name-panel__h1
+  xpath: null
+  type: Text
+price:
+  css: "span:nth-of-type(2) span.previousPriceBeforePromo"
+  xpath: null
+  type: Text
+price_sale:
+  css: "span:nth-of-type(2) span.new-price"
+  xpath: null
+  type: Text
+image:
+  css: "li.content__browse__list__item.content__browse__list__item--selected img"
+  xpath: null
+  type: Attribute
+  attribute: src
+price_final:
+  css: span.product-price-panel__price.product-price-panel--reduced-price
+  xpath: null
+  type: Text
