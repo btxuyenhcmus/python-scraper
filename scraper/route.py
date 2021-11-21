@@ -58,6 +58,7 @@ from esteelauder import Esteelauder
 from fragrancenet import Fragrancenet
 from clarksusa import Clarksusa
 from aldoshoes import Aldoshoes
+from bhcosmetics import Bhcosmetics
 import re
 import logging
 
@@ -121,7 +122,8 @@ REQUEST_WEB = {
     'www.esteelauder.com': Esteelauder.getInstance(),
     'www.fragrancenet.com': Fragrancenet.getInstance(),
     'www.clarksusa.com': Clarksusa.getInstance(),
-    'www.aldoshoes.com': Aldoshoes.getInstance()
+    'www.aldoshoes.com': Aldoshoes.getInstance(),
+    'www.bhcosmetics.com': Bhcosmetics.getInstance()
 }
 
 

@@ -1,0 +1,17 @@
+name:
+  css: p.h2
+  xpath: null
+  type: Text
+price_sale:
+  css: "span.product-detail__price:nth-of-type(4)"
+  xpath: null
+  type: Text
+price:
+  css: span.product-detail__price
+  xpath: null
+  type: Text
+image:
+  css: img.zoomImg
+  xpath: null
+  type: Attribute
+  attribute: src
