@@ -6,6 +6,10 @@ price:
   css: "div.price-wrapper___3PitS div.gl-price-item"
   xpath: null
   type: Text
+price_sale:
+  css: "div.price-wrapper___3PitS div.gl-price-item.gl-price-item--sale"
+  xpath: null
+  type: Text
 image:
   css: "div.pinch-zoom-wrapper___3fnOh div.content___26aLt img"
   xpath: null
