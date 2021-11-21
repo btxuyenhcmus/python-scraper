@@ -26,3 +26,8 @@ products:
       css: "span.a-price:nth-of-type(1) span.a-offscreen"
       xpath: null
       type: Text
+    image:
+      css: "div.a-section.aok-relative.s-image-fixed-height img"
+      xpath: null
+      type: Attribute
+      attribute: src
