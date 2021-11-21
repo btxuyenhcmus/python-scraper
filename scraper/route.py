@@ -57,6 +57,7 @@ from toofaced import Toofaced
 from esteelauder import Esteelauder
 from fragrancenet import Fragrancenet
 from clarksusa import Clarksusa
+from aldoshoes import Aldoshoes
 import re
 import logging
 
@@ -119,7 +120,8 @@ REQUEST_WEB = {
     'www.toofaced.com': Toofaced.getInstance(),
     'www.esteelauder.com': Esteelauder.getInstance(),
     'www.fragrancenet.com': Fragrancenet.getInstance(),
-    'www.clarksusa.com': Clarksusa.getInstance()
+    'www.clarksusa.com': Clarksusa.getInstance(),
+    'www.aldoshoes.com': Aldoshoes.getInstance()
 }
 
 

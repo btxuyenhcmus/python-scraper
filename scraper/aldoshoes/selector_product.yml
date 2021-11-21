@@ -1,0 +1,14 @@
+name:
+  css: "h1.c-buy-module__product-title span"
+  xpath: null
+  type: Text
+price:
+  css: span.c-product-price__formatted-price
+  xpath: null
+  type: Text
+image:
+  css: img.c-picture__img--block
+  xpath: null
+  type: Attribute
+  attribute: srcset
+  multiple: true

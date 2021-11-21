@@ -1,0 +1,74 @@
+from selectorlib import Extractor
+from base import RESP_DEFAULT, ChromePath
+from selenium import webdriver
+from bs4 import BeautifulSoup
+import logging
+import os
+
+pathfile = os.path.dirname(os.path.realpath(__file__))
+DNS_WEB = "https://www.aldoshoes.com"
+
+
+class Aldoshoes():
+    eP = Extractor.from_yaml_file("{}/selector_product.yml".format(pathfile))
+    __instance = None
+
+    def __init__(self, dns=DNS_WEB) -> None:
+        if Aldoshoes.__instance != None:
+            raise Exception("This is singleton class!!")
+        self.dns = dns
+        Aldoshoes.__instance = self
+
+    @staticmethod
+    def getInstance() -> object:
+        """This is static method be called by class"""
+        if Aldoshoes.__instance == None:
+            Aldoshoes()
+        return Aldoshoes.__instance
+
+    @property
+    def headers(self) -> dict:
+        return {
+            'dnt': '1',
+            'upgrade-insecure-requests': '1',
+            'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36',
+            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+            'sec-fetch-site': 'same-origin',
+            'sec-fetch-mode': 'navigate',
+            'sec-fetch-user': '?1',
+            'sec-fetch-dest': 'document',
+            'referer': self.dns,
+            'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
+        }
+
+    @property
+    def UserAgent(self):
+        return f'user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.79 Safari/537.36'
+
+    def product(self, url) -> dict:
+        logging.info("Downloading {}".format(url))
+        options = webdriver.ChromeOptions()
+        options.add_argument("headless")
+        options.add_argument("--no-sandbox")
+        options.add_argument(self.UserAgent)
+        try:
+            browser = webdriver.Chrome(ChromePath, options=options)
+            browser.get(url)
+            content = browser.page_source
+        except Exception as e:
+            logging.error(e)
+        browser.close()
+        try:
+            soup = BeautifulSoup(content, 'lxml')
+            title = soup.find('meta', property="og:image")
+            resp = Aldoshoes.eP.extract(content)
+            resp.update({
+                'image': title["content"]
+            })
+            return resp
+        except Exception as e:
+            logging.error(e)
+        return RESP_DEFAULT
+
+    def __str__(self) -> str:
+        return "Aldoshoes Model"
