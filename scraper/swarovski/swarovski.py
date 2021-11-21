@@ -58,7 +58,11 @@ class Swarovski():
             logging.error(e)
         browser.close()
         try:
-            return Swarovski.eP.extract(content)
+            resp = Swarovski.eP.extract(content)
+            resp.update({
+                'price': resp["price_sale"] or resp["price"]
+            })
+            return resp
         except Exception as e:
             logging.error(e)
         return RESP_DEFAULT
