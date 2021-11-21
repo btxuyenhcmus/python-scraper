@@ -6,6 +6,10 @@ price:
   css: "div.price-list span.ada-link span.ada-link:nth-of-type(1)"
   xpath: null
   type: Text
+price_sale:
+  css: "div.price-list div.salePrice span.ada-link:nth-of-type(1)"
+  xpath: null
+  type: Text
 image:
   css: "figure.swiper-slide.swiper-slide-active img.swiper-lazy"
   xpath: null

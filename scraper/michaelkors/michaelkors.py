@@ -63,7 +63,8 @@ class Michaelkors():
         try:
             resp = Michaelkors.eP.extract(content)
             resp.update({
-                'image': urljoin('https:', resp["image"])
+                'image': urljoin('https:', resp["image"]),
+                'price': resp["price_sale"] or resp["price"]
             })
             return resp
         except Exception as e:
