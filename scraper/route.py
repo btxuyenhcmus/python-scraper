@@ -146,3 +146,16 @@ def scrap():
     except Exception as e:
         logging.error(e)
     return jsonify(response)
+
+
+@scraper.route('/search', methods=['POST'])
+def search():
+    host, key = json.loads(request.data)[
+        "host"], json.loads(request.data)["keyword"]
+    try:
+        web = REQUEST_WEB.get(host)
+        response = web.search(key)
+        return jsonify(response)
+    except Exception as e:
+        logging.error(e)
+    return jsonify([])

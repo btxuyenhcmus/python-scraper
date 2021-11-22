@@ -27,7 +27,7 @@ products:
       xpath: null
       type: Text
     image:
-      css: "div.a-section.aok-relative.s-image-fixed-height img"
+      css: img.s-image
       xpath: null
       type: Attribute
       attribute: src

@@ -1,4 +1,6 @@
 import logging
+import re
+from urllib.parse import urljoin
 from selectorlib import Extractor
 from base import Base, RESP_DEFAULT
 import requests
@@ -44,12 +46,22 @@ class Amazon(Base):
         if r.status_code > 500:
             if "To discuss automated access to Amazon data please contact" in r.text:
                 print(
-                    "Page %s was blocked by Amazon. Please try using better proxies\n" % url)
+                    "Page was blocked by Amazon. Please try using better proxies\n")
             else:
                 print("Page %s must have been blocked by Amazon as the status code was %d" % (
                     self.dns + "/s?k={}".format(keyword), r.status_code))
             return []
-        return Amazon.eS.extract(r.text)["products"]
+        resp = Amazon.eS.extract(r.text)["products"]
+        for idx in range(len(resp)):
+            try:
+                price = float(re.sub('[^.0-9]', '', resp[idx]["price"]))
+            except Exception as e:
+                price = None
+            resp[idx].update({
+                'url': urljoin(self.dns, resp[idx]["url"]),
+                'price': price
+            })
+        return resp
 
     def __str__(self) -> str:
         return "Amazon Model"
