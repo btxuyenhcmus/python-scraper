@@ -1,4 +1,6 @@
 import logging
+import re
+import requests
 from selectorlib import Extractor
 from base import Base, RESP_DEFAULT
 import os
@@ -9,6 +11,7 @@ DNS_WEB = "https://www.ashford.com"
 
 class Ashford(Base):
     eP = Extractor.from_yaml_file("{}/selector_product.yml".format(pathfile))
+    eS = Extractor.from_yaml_file("{}/selector_search.yml".format(pathfile))
     __instance = None
 
     def __init__(self, dns=DNS_WEB) -> None:
@@ -30,6 +33,21 @@ class Ashford(Base):
         except Exception as e:
             logging.error(e)
         return RESP_DEFAULT
+
+    def search(self, keyword):
+        logging.info("Searching {} for {}".format(keyword, self.dns))
+        r = requests.get(
+            self.dns + "/catalogsearch/result/?q={}".format(keyword), headers=self.headers)
+        resp = Ashford.eS.extract(r.text)["products"]
+        for idx in range(len(resp)):
+            try:
+                price = float(re.sub('[^.0-9]', '', resp[idx]["price"]))
+            except Exception as e:
+                price = None
+            resp[idx].update({
+                'price': price
+            })
+        return resp
 
     def __str__(self) -> str:
         return "Ashford Model"

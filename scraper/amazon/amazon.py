@@ -40,7 +40,7 @@ class Amazon(Base):
         return RESP_DEFAULT
 
     def search(self, keyword):
-        print("Downloading {}".format(self.dns + "/s?k={}".format(keyword)))
+        logging.info("Searching {} for {}".format(keyword, self.dns))
         r = requests.get(self.dns + "/s?k={}".format(keyword),
                          headers=self.headers)
         if r.status_code > 500:
