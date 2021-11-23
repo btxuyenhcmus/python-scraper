@@ -1,0 +1,32 @@
+products:
+  css: div.product-grid__card
+  xpath: null
+  multiple: true
+  type: Text
+  children:
+    title:
+      css: div.product-card__title
+      xpath: null
+      type: Text
+    price:
+      css: div.product-price
+      xpath: null
+      type: Text
+    url:
+      css: a.product-card__link-overlay
+      xpath: null
+      type: Attribute
+      attribute: href
+    image:
+      css: img.product-card__hero-image
+      xpath: null
+      type: Attribute
+      attribute: src
+    note:
+      css: div.product-card__messaging
+      xpath: null
+      type: Text
+    variant:
+      css: div.product-card__subtitle
+      xpath: null
+      type: Text

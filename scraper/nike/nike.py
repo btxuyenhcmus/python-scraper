@@ -3,6 +3,7 @@ from base import RESP_DEFAULT, ChromePath
 from selenium import webdriver
 import logging
 import os
+import re
 
 pathfile = os.path.dirname(os.path.realpath(__file__))
 DNS_WEB = "https://www.nike.com"
@@ -10,6 +11,7 @@ DNS_WEB = "https://www.nike.com"
 
 class Nike():
     eP = Extractor.from_yaml_file("{}/selector_product.yml".format(pathfile))
+    eS = Extractor.from_yaml_file("{}/selector_search.yml".format(pathfile))
     __instance = None
 
     def __init__(self, dns=DNS_WEB) -> None:
@@ -59,6 +61,35 @@ class Nike():
         except Exception as e:
             logging.error(e)
         return RESP_DEFAULT
+
+    def search(self, keyword):
+        logging.info("Searching for {} with {}".format(self.dns, keyword))
+        options = webdriver.ChromeOptions()
+        options.add_argument("headless")
+        options.add_argument("--no-sandbox")
+        options.add_argument(
+            "--proxy-server={}".format(os.getenv('HTTP_PROXY')))
+        try:
+            browser = webdriver.Chrome(ChromePath, options=options)
+            browser.get(self.dns + "/w?q={}&vst={}".format(keyword, keyword))
+            content = browser.page_source
+        except Exception as e:
+            logging.error(e)
+        browser.close()
+        try:
+            resp = Nike.eS.extract(content)["products"]
+            for idx in range(len(resp)):
+                try:
+                    price = float(re.sub('[^.0-9]', '', resp[idx]["price"]))
+                except Exception as e:
+                    price = None
+                resp[idx].update({
+                    'price': price
+                })
+            return resp
+        except Exception as e:
+            logging.error(e)
+        return []
 
     def __str__(self) -> str:
         return "Nike Model"
