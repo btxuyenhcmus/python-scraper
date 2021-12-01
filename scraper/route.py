@@ -59,6 +59,7 @@ from fragrancenet import Fragrancenet
 from clarksusa import Clarksusa
 from aldoshoes import Aldoshoes
 from bhcosmetics import Bhcosmetics
+from datetime import timedelta
 import re
 import logging
 
@@ -142,9 +143,9 @@ def scrap():
         response.update({
             'price': float(re.sub('[^.0-9]', '', response["price"]))
         })
-        redis_client.set(url, json.dumps(response))
     except Exception as e:
         logging.error(e)
+    redis_client.setex(url, timedelta(days=3), json.dumps(response))
     return jsonify(response)
 
 
