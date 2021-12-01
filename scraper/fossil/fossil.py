@@ -38,7 +38,7 @@ class Fossil(Base):
                 resp.update({
                     'name': data["name"],
                     'image': data["image"][0],
-                    'price': data["offers"]["price"]
+                    'price': data["offers"].get('price', data["offers"].get('lowPrice'))
                 })
             except Exception as e:
                 logging.error(e)

@@ -16,6 +16,6 @@ image:
   type: Attribute
   attribute: src
 price_final:
-  css: span.product-price-panel__price.product-price-panel--reduced-price
+  css: span.product-price-panel__price.js-current-price
   xpath: null
   type: Text

@@ -60,7 +60,7 @@ class Clarksusa():
         try:
             resp = Clarksusa.eP.extract(content)
             resp.update({
-                'price': resp["price_final"] or resp["price"]
+                'price': (resp["price_sale"] or resp["price"]) or resp["price_final"]
             })
             return resp
         except Exception as e:
