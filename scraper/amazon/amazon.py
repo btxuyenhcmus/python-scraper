@@ -71,12 +71,17 @@ class Amazon(Base):
                 rating = (float(ratings[0]), float(ratings[3]))
             except Exception as e:
                 rating = (0, 0)
+            try:
+                off = round((original_price - price) / original_price * 100)
+            except Exception as e:
+                off = None
             resp[idx].update({
                 'url': urljoin(self.dns, resp[idx]["url"]),
                 'price': price,
                 'original_price': original_price,
                 'reviews': reviews,
-                'rating': rating
+                'rating': rating,
+                'off': off
             })
         return resp
 
