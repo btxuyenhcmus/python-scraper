@@ -57,9 +57,26 @@ class Amazon(Base):
                 price = float(re.sub('[^.0-9]', '', resp[idx]["price"]))
             except Exception as e:
                 price = None
+            try:
+                original_price = float(
+                    re.sub('[^.0-9]', '', resp[idx]["original_price"]))
+            except Exception as e:
+                original_price = None
+            try:
+                reviews = int(re.sub('[^.0-9]', '', resp[idx]["reviews"]))
+            except Exception as e:
+                reviews = 0
+            try:
+                ratings = resp[idx]["rating"].split(' ')
+                rating = (float(ratings[0]), float(ratings[3]))
+            except Exception as e:
+                rating = (0, 0)
             resp[idx].update({
                 'url': urljoin(self.dns, resp[idx]["url"]),
-                'price': price
+                'price': price,
+                'original_price': original_price,
+                'reviews': reviews,
+                'rating': rating
             })
         return resp
 

@@ -26,6 +26,10 @@ products:
       css: "span.a-price:nth-of-type(1) span.a-offscreen"
       xpath: null
       type: Text
+    original_price:
+      css: "span.a-price:nth_of-type(2) span.a-offscreen"
+      xpath: null
+      type: Text
     image:
       css: img.s-image
       xpath: null
