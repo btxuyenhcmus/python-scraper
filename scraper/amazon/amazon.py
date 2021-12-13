@@ -31,8 +31,20 @@ class Amazon(Base):
     def product(self, url) -> dict:
         try:
             resp = Amazon.eP.extract(super().product(url))
+            try:
+                ratings = resp["rating"].split(' ')
+                rating = (float(ratings[0]), float(ratings[3]))
+            except Exception as e:
+                rating = (0, 0)
+            try:
+                reviews = int(re.sub('[^.0-9]', '', resp["reviews"]))
+            except Exception as e:
+                reviews = 0
             resp.update({
-                'price': resp["price"] or resp["price_deal"]
+                'price': resp["price"] or resp["price_deal"],
+                'rating': rating,
+                'reviews': reviews,
+                'link_to_all_reviews': urljoin(self.dns, resp["link_to_all_reviews"])
             })
             return resp
         except Exception as e:

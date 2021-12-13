@@ -15,29 +15,12 @@ image:
   css: ".imgTagWrapper img"
   type: Attribute
   attribute: data-old-hires
-images:
-  css: ".imgTagWrapper img"
-  type: Attribute
-  attribute: data-a-dynamic-image
 rating:
-  css: span.arp-rating-out-of-text
+  css: span.a-icon-alt
   type: Text
-number_of_reviews:
-  css: "a.a-link-normal h2"
+reviews:
+  css: "span#acrCustomerReviewText"
   type: Text
-variants:
-  css: "form.a-section li"
-  multiple: true
-  type: Text
-  children:
-    name:
-      css: ""
-      type: Attribute
-      attribute: title
-    asin:
-      css: ""
-      type: Attribute
-      attribute: data-defaultasin
 product_description:
   css: "#productDescription"
   type: Text
