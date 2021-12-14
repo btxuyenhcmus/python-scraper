@@ -10,3 +10,19 @@ services:
     restart: always
     volumes:
       - ./:/python-scraper
+    networks:
+      - cache-net
+
+  redis:
+    container_name: redis-scraper
+    image: redis:alpine
+    restart: always
+    volumes:
+      - ./etc/redis/conf/redis.conf:/usr/local/etc/redis/redis.conf
+    command: redis-server /usr/local/etc/redis/redis.conf
+    networks:
+      - cache-net
+
+networks:
+  cache-net:
+    driver: bridge
