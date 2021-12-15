@@ -3,6 +3,8 @@ import re
 from urllib.parse import urljoin
 from selectorlib import Extractor
 from base import Base, RESP_DEFAULT
+from bs4 import BeautifulSoup
+from flask import json
 import requests
 import os
 
@@ -30,7 +32,8 @@ class Amazon(Base):
 
     def product(self, url) -> dict:
         try:
-            resp = Amazon.eP.extract(super().product(url))
+            html = super().product(url)
+            resp = Amazon.eP.extract(html)
             try:
                 ratings = resp["rating"].split(' ')
                 rating = (float(ratings[0]), float(ratings[3]))
@@ -40,7 +43,18 @@ class Amazon(Base):
                 reviews = int(re.sub('[^.0-9]', '', resp["reviews"]))
             except Exception as e:
                 reviews = 0
+            try:
+                soup = BeautifulSoup(html, 'html.parser')
+                scripts = soup.find_all('script', type='text/javascript')
+                script = next(
+                    it for it in scripts if 'ImageBlockATF' in str(it))
+                script = str(script).split("{ 'initial': ")[1]
+                script = script.split('}]')[0] + '}]'
+                scripts = json.loads(script)
+            except Exception as e:
+                scripts = [{"hiRes": resp["image"]}]
             resp.update({
+                'images': [img["hiRes"] for img in scripts],
                 'price': resp["price"] or resp["price_deal"],
                 'rating': rating,
                 'reviews': reviews,
