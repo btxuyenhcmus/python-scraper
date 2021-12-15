@@ -9,7 +9,9 @@ price_deal:
   xpath: null
   type: Text
 short_description:
-  css: "#featurebullets_feature_div"
+  css: "#featurebullets_feature_div li span.a-list-item"
+  xpath: null
+  multiple: true
   type: Text
 image:
   css: ".imgTagWrapper img"
